@@ -29,12 +29,12 @@ jobs:
         uses: pre-commit/action@v3.0.0
       - name: Sphinx build
         run: |
-          cd ./docs && sphinx-build -b html ./source ./build
+          cd ./$GITHUB_WORKSPACE/docs && sphinx-build -b html ./source ./build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         with:
           publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: _build/
+          publish_dir: ./$GITHUB_WORKSPACE/docs/build/
           force_orphan: true
