@@ -29,7 +29,10 @@ jobs:
         uses: pre-commit/action@v3.0.0
       - name: Sphinx build
         run: |
-          cd ./$GITHUB_WORKSPACE/docs && sphinx-build -b html ./source ./build
+          sphinx-build -b html ./$GITHUB_WORKSPACE/docs/source ./$GITHUB_WORKSPACE/docs/build
+      - name: Checking sphinx build
+        run: |
+          dir ./$GITHUB_WORKSPACE/docs/build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
