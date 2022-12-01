@@ -1,0 +1,12 @@
+AdventOfCode 2022
+========================================
+
+Day 1
+------------------
+.. automodule:: aoc2022.day1
+   :members:
+
+Day 2
+------------------
+.. automodule:: aoc2022.day2
+   :members:
