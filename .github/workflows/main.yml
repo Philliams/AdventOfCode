@@ -35,6 +35,7 @@ jobs:
         run: |
           cd ./$GITHUB_WORKSPACE/docs
           sphinx-build -b html ./source ./build
+          cd ../
       - name: Checking sphinx build
         run: |
           dir ./$GITHUB_WORKSPACE/docs/build
