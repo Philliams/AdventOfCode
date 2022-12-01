@@ -25,9 +25,9 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install flake8 pre-commit pytest
           pip install -r ./$GITHUB_WORKSPACE/dependencies/requirements.txt
-      - name: Lint with pre-commit
-          run: |
-            pre-commit -c ./$GITHUB_WORKSPACE/.pre-commit-config.yaml run --all
+      - name: Lint with precommit
+        run: |
+          pre-commit -c ./$GITHUB_WORKSPACE/.pre-commit-config.yaml run --all
       - name: Sphinx build
         run: |
           cd ./docs && sphinx-build -b html ./source ./build
