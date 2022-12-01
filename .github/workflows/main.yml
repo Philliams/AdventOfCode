@@ -33,7 +33,7 @@ jobs:
       - name: Checking sphinx build
         run: |
           dir ./$GITHUB_WORKSPACE/docs/build
-      - name: Deploy
+      - name: Deploy ${{github.ref}} - ${{github.event_name}}
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         with:
