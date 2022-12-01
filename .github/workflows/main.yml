@@ -39,12 +39,6 @@ jobs:
       - name: Checking sphinx build
         run: |
           dir ./$GITHUB_WORKSPACE/docs/build
-      - name: Print current pathing
-        run: |
-          pwd
-          cd ./$GITHUB_WORKSPACE/
-          pwd
-          cd ../
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}

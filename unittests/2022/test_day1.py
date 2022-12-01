@@ -26,8 +26,25 @@ class TestDay1:
         # Assert
         assert actual == expected
 
+    def test_example_based_get_largest_group_sum(self):
+        # Prepare
+        input_data = [
+            [1000, 2000, 3000],
+            [4000],
+            [5000, 6000],
+            [7000, 8000, 9000],
+            [10_000],
+        ]
+
+        # Run
+        actual_idx, actual_sum = day1.get_largest_group_sum(input_data)
+
+        # Assert
+        assert actual_sum == 24_000
+        assert actual_idx == 3
+
     @given(list_of_lists)  # property-based testing
-    def test_get_largest_group_sum(self, groups):
+    def test_property_based_get_largest_group_sum(self, groups):
         # prepare
         sums = [sum(group) for group in groups]
         max_ = max(sums)
