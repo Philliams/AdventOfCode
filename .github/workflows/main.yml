@@ -39,11 +39,15 @@ jobs:
       - name: Checking sphinx build
         run: |
           dir ./$GITHUB_WORKSPACE/docs/build
+      - name: Print current pathing - ${{GITHUB_WORKSPACE}}
+        run: |
+          pwd
+          dir
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         with:
           publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./$GITHUB_WORKSPACE/docs/build/
+          publish_dir: /docs/build/
           force_orphan: true
