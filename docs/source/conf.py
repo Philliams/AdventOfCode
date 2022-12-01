@@ -1,3 +1,7 @@
+import sys
+sys.path
+sys.path.append('../src/')
+
 # Configuration file for the Sphinx documentation builder.
 #
 # For the full list of built-in configuration values, see the documentation:
@@ -20,11 +24,6 @@ extensions = [
 
 templates_path = ['_templates']
 exclude_patterns = []
-
-import sys
-sys.path
-sys.path.append('../src/')
-
 
 
 # -- Options for HTML output -------------------------------------------------

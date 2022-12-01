@@ -7,8 +7,7 @@ def get_raw_data() -> str:
     :return: Raw text input for example
     :rtype: str
     """
-    raw_data = (
-        """
+    raw_data = """
         1000
         2000
         3000
@@ -24,7 +23,6 @@ def get_raw_data() -> str:
 
         10000
         """
-    )
     return raw_data
 
 
@@ -40,15 +38,9 @@ def parse_data_to_array(raw_data: str) -> List[List[int]]:
     :rtype: List[List[int]]
     """
     raw_data = raw_data.replace(" ", "").strip()
-    line_groups = [
-        group for group in raw_data.split("\n\n")
-        if len(group) > 0
-    ]
+    line_groups = [group for group in raw_data.split("\n\n") if len(group) > 0]
 
-    parsed_data = [
-        [int(e) for e in group.split("\n")]
-        for group in line_groups
-    ]
+    parsed_data = [[int(e) for e in g.split("\n")] for g in line_groups]
 
     return parsed_data
 
