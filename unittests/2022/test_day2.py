@@ -2,22 +2,11 @@ from src.aoc2022 import day2
 
 
 class TestDay1:
-    def test_parse_data(self):
-        # Prepare
-        raw_input = day2.get_raw_data()
-
-        # Run
-        actual = day2.parse_data_to_array(raw_input)
-        expected = [["A", "Y"], ["B", "X"], ["C", "Z"]]
-
-        # Assert
-        assert actual == expected
-
     def test_get_points(self):
         # Prepare
-        rock = day2.ValidMove.ROCK
-        paper = day2.ValidMove.PAPER
-        scissors = day2.ValidMove.SCISSORS
+        rock = day2.Move.ROCK
+        paper = day2.Move.PAPER
+        scissors = day2.Move.SCISSORS
 
         rock_pts = 1
         paper_pts = 2
@@ -42,9 +31,9 @@ class TestDay1:
         assert day2.get_points(scissors, rock) == rock_pts + win_pts
 
     def test_get_move(self):
-        rock = day2.ValidMove.ROCK
-        paper = day2.ValidMove.PAPER
-        scissors = day2.ValidMove.SCISSORS
+        rock = day2.Move.ROCK
+        paper = day2.Move.PAPER
+        scissors = day2.Move.SCISSORS
 
         move_points = {
             rock: 1,
@@ -73,7 +62,7 @@ class TestDay1:
     def test_naive_strategy(self):
         # Prepare
         raw_input = day2.get_raw_data()
-        parsed_input = day2.parse_data_to_array(raw_input)
+        parsed_input = day2.parse_data_naive(raw_input)
         expected_pts = 15
 
         # Run
@@ -85,7 +74,7 @@ class TestDay1:
     def test_correct_strategy(self):
         # Prepare
         raw_input = day2.get_raw_data()
-        parsed_input = day2.parse_data_to_array(raw_input)
+        parsed_input = day2.parse_data_correct(raw_input)
         expected_pts = 12
 
         # Run
