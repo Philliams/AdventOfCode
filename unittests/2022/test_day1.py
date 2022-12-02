@@ -5,7 +5,7 @@ from src.aoc2022 import day1
 
 non_neg_integer = st.integers(min_value=0, max_value=100_000)
 integer_list = st.lists(non_neg_integer, min_size=1, max_size=1024)
-list_of_lists = st.lists(integer_list, min_size=1, max_size=64)
+list_of_lists = st.lists(integer_list, min_size=3, max_size=64)
 
 
 class TestDay1:
@@ -57,3 +57,17 @@ class TestDay1:
         assert actual_idx >= 0
         if len(groups) > 0:
             assert actual_idx < len(groups)
+
+    @given(list_of_lists)  # property-based testing
+    def test_propert_based_get_3_largest_group_sums(self, groups):
+        # prepare
+        sums = [sum(group) for group in groups]
+        sorted_sums = sorted(sums)
+
+        # Run
+        top_groups = day1.get_3_largest_group_sum(groups)
+
+        # Assert
+        assert top_groups[0][1] == sorted_sums[-3]  # 3rd largest
+        assert top_groups[1][1] == sorted_sums[-2]  # 2nd largest
+        assert top_groups[2][1] == sorted_sums[-1]  # largest
