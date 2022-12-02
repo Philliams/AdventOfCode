@@ -31,29 +31,89 @@ LOSE_POINTS = 0
 
 
 class ValidMove(Enum):
+    """
+    Enum for valid Rock-Paper-Scissors game
+    """
+
     ROCK = "Rock"
+    """
+    Value for 'Rock' move.
+    """
     PAPER = "Paper"
+    """
+    Value for 'Paper' move.
+    """
     SCISSORS = "Scissors"
+    """
+    Value for 'Scissors' move.
+    """
 
 
 class Strategy(Enum):
-    X = "lose"
-    Y = "draw"
-    Z = "win"
+    """
+    Enum for valid Rock-Paper-Scissors game
+    """
 
+    # raw strategies
+    X = "lose"
+    """
+    Mapping of 'X' -> 'lose' from strategy guide
+    """
+    Y = "draw"
+    """
+    Mapping of 'Y' -> 'draw' from strategy guide
+    """
+    Z = "win"
+    """
+    Mapping of 'Z' -> 'win' from strategy guide
+    """
+    # Human-readable strategies
     LOSE = "lose"
+    """
+    Value for 'lose' strategy.
+    """
     DRAW = "draw"
+    """
+    Value for 'draw' strategy.
+    """
     WIN = "win"
+    """
+    Value for 'win' strategy.
+    """
 
 
 class PlayerMove(Enum):
-    A = ValidMove.ROCK
-    B = ValidMove.PAPER
-    C = ValidMove.SCISSORS
+    """
+    Enum for raw input to player move mappings
+    """
 
+    # oppnent move mappings
+    A = ValidMove.ROCK
+    """
+    Mapping of 'A' -> 'rock' for opponent move
+    """
+    B = ValidMove.PAPER
+    """
+    Mapping of 'B' -> 'paper' for opponent move
+    """
+    C = ValidMove.SCISSORS
+    """
+    Mapping of 'C' -> 'scissors' for opponent move
+    """
+
+    # your move
     X = ValidMove.ROCK
+    """
+    Mapping of 'X' -> 'rock' for opponent move
+    """
     Y = ValidMove.PAPER
+    """
+    Mapping of 'Y' -> 'paper' for opponent move
+    """
     Z = ValidMove.SCISSORS
+    """
+    Mapping of 'Z' -> 'scissors' for opponent move
+    """
 
 
 move_points = {ValidMove.ROCK: 1, ValidMove.PAPER: 2, ValidMove.SCISSORS: 3}
