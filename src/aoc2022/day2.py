@@ -26,9 +26,7 @@ def get_raw_data(file_path: str = None) -> str:
 
 
 def parse_data(
-    raw_data: str,
-    left_mapping: Dict[str, Enum],
-    right_mapping: Dict[str, Enum]
+    raw_data: str, l_mapping: Dict[str, Enum], r_mapping: Dict[str, Enum]
 ) -> List[Tuple[Enum, Enum]]:
     """
     Parses the raw text input into lists of tuples of (Enum, Enum)
@@ -36,11 +34,11 @@ def parse_data(
     :param raw_data: Raw text data to be parsed
     :type raw_data: str
 
-    :param left_mapping: Mapping to convert string to enum value
-    :type left_mapping: Dict[str, Enum]
+    :param l_mapping: Mapping to convert string to enum value
+    :type l_mapping: Dict[str, Enum]
 
-    :param right_mapping: Mapping to convert string to enum value
-    :type right_mapping: Dict[str, Enum]
+    :param r_mapping: Mapping to convert string to enum value
+    :type r_mapping: Dict[str, Enum]
 
     :return: List of parsed tuples
     :rtype: List[Tuple[Enum, Enum]]
@@ -51,14 +49,14 @@ def parse_data(
 
     parsed_data = []
     for left_token, right_token in values:
-        parsed_row = (left_mapping[left_token], right_mapping[right_token])
+        parsed_row = (l_mapping[left_token], r_mapping[right_token])
         parsed_data.append(parsed_row)
 
     return parsed_data
 
+
 def calculate_points(
-    rounds: List[Tuple[Enum, Enum]],
-    point_mapping: Dict[Tuple[Enum, Enum], int]
+    rounds: List[Tuple[Enum, Enum]], pts_mapping: Dict[Tuple[Enum, Enum], int]
 ) -> int:
     """
     Calculates the number of points given a list of rounds and a point mapping
@@ -66,13 +64,13 @@ def calculate_points(
     :param rounds: List of tuples for each round
     :type rounds: List[Tuple[Enum, Enum]]
 
-    :param point_mapping: Mapping to convert a round to a point count
-    :type point_mapping: Dict[str, Enum]
+    :param pts_mapping: Mapping to convert a round to a point count
+    :type pts_mapping: Dict[str, Enum]
 
     :return: Total score across all rounds
     :rtype: int
     """
-    return sum([point_mapping[round_] for round_ in rounds])
+    return sum([pts_mapping[round_] for round_ in rounds])
 
 
 class Move(Enum):
@@ -92,6 +90,7 @@ class Move(Enum):
     """
     Value for 'Scissors' move.
     """
+
 
 class Strategy(Enum):
     """
@@ -114,18 +113,18 @@ class Strategy(Enum):
 
 if __name__ == "__main__":  # pragma: no cover
     move_mapping = {
-        "A" : Move.ROCK,
-        "B" : Move.PAPER,
-        "C" : Move.SCISSORS,
-        "X" : Move.ROCK,
-        "Y" : Move.PAPER,
-        "Z" : Move.SCISSORS, 
+        "A": Move.ROCK,
+        "B": Move.PAPER,
+        "C": Move.SCISSORS,
+        "X": Move.ROCK,
+        "Y": Move.PAPER,
+        "Z": Move.SCISSORS,
     }
 
     strategy_mapping = {
-        "X" : Strategy.LOSE,
-        "Y" : Strategy.DRAW,
-        "Z" : Strategy.WIN, 
+        "X": Strategy.LOSE,
+        "Y": Strategy.DRAW,
+        "Z": Strategy.WIN,
     }
 
     LOSE_PTS = 0
@@ -137,31 +136,27 @@ if __name__ == "__main__":  # pragma: no cover
     SCISSORS_PTS = 3
 
     point_mappings_part_1 = {
-        (Move.ROCK, Move.ROCK) : ROCK_PTS + DRAW_PTS,
-        (Move.PAPER, Move.ROCK) : ROCK_PTS + LOSE_PTS,
-        (Move.SCISSORS, Move.ROCK) : ROCK_PTS + WIN_PTS,
-
-        (Move.ROCK, Move.PAPER) : PAPER_PTS + WIN_PTS,
-        (Move.PAPER, Move.PAPER) : PAPER_PTS + DRAW_PTS,
-        (Move.SCISSORS, Move.PAPER) : PAPER_PTS + LOSE_PTS,
-
-        (Move.ROCK, Move.SCISSORS) : SCISSORS_PTS + LOSE_PTS,
-        (Move.PAPER, Move.SCISSORS) : SCISSORS_PTS + WIN_PTS,
-        (Move.SCISSORS, Move.SCISSORS) : SCISSORS_PTS + DRAW_PTS,
+        (Move.ROCK, Move.ROCK): ROCK_PTS + DRAW_PTS,
+        (Move.PAPER, Move.ROCK): ROCK_PTS + LOSE_PTS,
+        (Move.SCISSORS, Move.ROCK): ROCK_PTS + WIN_PTS,
+        (Move.ROCK, Move.PAPER): PAPER_PTS + WIN_PTS,
+        (Move.PAPER, Move.PAPER): PAPER_PTS + DRAW_PTS,
+        (Move.SCISSORS, Move.PAPER): PAPER_PTS + LOSE_PTS,
+        (Move.ROCK, Move.SCISSORS): SCISSORS_PTS + LOSE_PTS,
+        (Move.PAPER, Move.SCISSORS): SCISSORS_PTS + WIN_PTS,
+        (Move.SCISSORS, Move.SCISSORS): SCISSORS_PTS + DRAW_PTS,
     }
 
     point_mappings_part_2 = {
-        (Move.ROCK, Strategy.LOSE) : SCISSORS_PTS + LOSE_PTS,
-        (Move.PAPER, Strategy.LOSE) : ROCK_PTS + LOSE_PTS,
-        (Move.SCISSORS, Strategy.LOSE) : PAPER_PTS + LOSE_PTS,
-
-        (Move.ROCK, Strategy.DRAW) : ROCK_PTS + DRAW_PTS,
-        (Move.PAPER, Strategy.DRAW) : PAPER_PTS + DRAW_PTS,
-        (Move.SCISSORS, Strategy.DRAW) : SCISSORS_PTS + DRAW_PTS,
-
-        (Move.ROCK, Strategy.WIN) : PAPER_PTS + WIN_PTS,
-        (Move.PAPER, Strategy.WIN) : SCISSORS_PTS + WIN_PTS,
-        (Move.SCISSORS, Strategy.WIN) : ROCK_PTS + WIN_PTS,
+        (Move.ROCK, Strategy.LOSE): SCISSORS_PTS + LOSE_PTS,
+        (Move.PAPER, Strategy.LOSE): ROCK_PTS + LOSE_PTS,
+        (Move.SCISSORS, Strategy.LOSE): PAPER_PTS + LOSE_PTS,
+        (Move.ROCK, Strategy.DRAW): ROCK_PTS + DRAW_PTS,
+        (Move.PAPER, Strategy.DRAW): PAPER_PTS + DRAW_PTS,
+        (Move.SCISSORS, Strategy.DRAW): SCISSORS_PTS + DRAW_PTS,
+        (Move.ROCK, Strategy.WIN): PAPER_PTS + WIN_PTS,
+        (Move.PAPER, Strategy.WIN): SCISSORS_PTS + WIN_PTS,
+        (Move.SCISSORS, Strategy.WIN): ROCK_PTS + WIN_PTS,
     }
 
     raw_data = get_raw_data(file_path="./data/day2.txt")
