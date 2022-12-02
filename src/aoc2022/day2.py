@@ -106,23 +106,24 @@ def parse_data_naive(raw_data: str) -> List[Tuple[str, str]]:
     parsed_data = []
 
     for row in values:
-        if row[0] == 'A':
+        if row[0] == "A":
             their_move = Move.ROCK
-        if row[0] == 'B':
+        if row[0] == "B":
             their_move = Move.PAPER
-        if row[0] == 'C':
+        if row[0] == "C":
             their_move = Move.SCISSORS
 
-        if row[1] == 'X':
+        if row[1] == "X":
             your_move = Move.ROCK
-        if row[1] == 'Y':
+        if row[1] == "Y":
             your_move = Move.PAPER
-        if row[1] == 'Z':
+        if row[1] == "Z":
             your_move = Move.SCISSORS
 
         parsed_data.append((their_move, your_move))
 
     return parsed_data
+
 
 def parse_data_correct(raw_data: str) -> List[Tuple[str, str]]:
     """
@@ -141,18 +142,18 @@ def parse_data_correct(raw_data: str) -> List[Tuple[str, str]]:
     parsed_data = []
 
     for row in values:
-        if row[0] == 'A':
+        if row[0] == "A":
             their_move = Move.ROCK
-        if row[0] == 'B':
+        if row[0] == "B":
             their_move = Move.PAPER
-        if row[0] == 'C':
+        if row[0] == "C":
             their_move = Move.SCISSORS
 
-        if row[1] == 'X':
+        if row[1] == "X":
             your_strat = Strategy.LOSE
-        if row[1] == 'Y':
+        if row[1] == "Y":
             your_strat = Strategy.DRAW
-        if row[1] == 'Z':
+        if row[1] == "Z":
             your_strat = Strategy.WIN
 
         result = (their_move, your_strat)
