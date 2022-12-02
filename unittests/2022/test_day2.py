@@ -1,84 +1,78 @@
 from src.aoc2022 import day2
 
+LOSE_PTS = 0
+DRAW_PTS = 3
+WIN_PTS = 6
+
+ROCK_PTS = 1
+PAPER_PTS = 2
+SCISSORS_PTS = 3
+
+move_mapping = {
+    "A" : day2.Move.ROCK,
+    "B" : day2.Move.PAPER,
+    "C" : day2.Move.SCISSORS,
+    "X" : day2.Move.ROCK,
+    "Y" : day2.Move.PAPER,
+    "Z" : day2.Move.SCISSORS, 
+}
+
+strategy_mapping = {
+    "X" : day2.Strategy.LOSE,
+    "Y" : day2.Strategy.DRAW,
+    "Z" : day2.Strategy.WIN, 
+}
+
+point_mappings_moves = {
+    (day2.Move.ROCK, day2.Move.ROCK) : ROCK_PTS + DRAW_PTS,
+    (day2.Move.PAPER, day2.Move.ROCK) : ROCK_PTS + LOSE_PTS,
+    (day2.Move.SCISSORS, day2.Move.ROCK) : ROCK_PTS + WIN_PTS,
+
+    (day2.Move.ROCK, day2.Move.PAPER) : PAPER_PTS + WIN_PTS,
+    (day2.Move.PAPER, day2.Move.PAPER) : PAPER_PTS + DRAW_PTS,
+    (day2.Move.SCISSORS, day2.Move.PAPER) : PAPER_PTS + LOSE_PTS,
+
+    (day2.Move.ROCK, day2.Move.SCISSORS) : SCISSORS_PTS + LOSE_PTS,
+    (day2.Move.PAPER, day2.Move.SCISSORS) : SCISSORS_PTS + WIN_PTS,
+    (day2.Move.SCISSORS, day2.Move.SCISSORS) : SCISSORS_PTS + DRAW_PTS,
+}
+
+point_mappings_strategy = {
+    (day2.Move.ROCK, day2.Strategy.LOSE) : SCISSORS_PTS + LOSE_PTS,
+    (day2.Move.PAPER, day2.Strategy.LOSE) : ROCK_PTS + LOSE_PTS,
+    (day2.Move.SCISSORS, day2.Strategy.LOSE) : PAPER_PTS + LOSE_PTS,
+
+    (day2.Move.ROCK, day2.Strategy.DRAW) : ROCK_PTS + DRAW_PTS,
+    (day2.Move.PAPER, day2.Strategy.DRAW) : PAPER_PTS + DRAW_PTS,
+    (day2.Move.SCISSORS, day2.Strategy.DRAW) : SCISSORS_PTS + DRAW_PTS,
+
+    (day2.Move.ROCK, day2.Strategy.WIN) : PAPER_PTS + WIN_PTS,
+    (day2.Move.PAPER, day2.Strategy.WIN) : SCISSORS_PTS + WIN_PTS,
+    (day2.Move.SCISSORS, day2.Strategy.WIN) : ROCK_PTS + WIN_PTS,
+}
+
 
 class TestDay1:
-    def test_get_points(self):
-        # Prepare
-        rock = day2.Move.ROCK
-        paper = day2.Move.PAPER
-        scissors = day2.Move.SCISSORS
-
-        rock_pts = 1
-        paper_pts = 2
-        scissors_pts = 3
-
-        win_pts = 6
-        tie_pts = 3
-        lose_pts = 0
-
-        # Run/Assert
-
-        assert day2.get_points(rock, scissors) == scissors_pts + lose_pts
-        assert day2.get_points(paper, scissors) == scissors_pts + win_pts
-        assert day2.get_points(scissors, scissors) == scissors_pts + tie_pts
-
-        assert day2.get_points(rock, paper) == paper_pts + win_pts
-        assert day2.get_points(paper, paper) == paper_pts + tie_pts
-        assert day2.get_points(scissors, paper) == paper_pts + lose_pts
-
-        assert day2.get_points(rock, rock) == rock_pts + tie_pts
-        assert day2.get_points(paper, rock) == rock_pts + lose_pts
-        assert day2.get_points(scissors, rock) == rock_pts + win_pts
-
-    def test_get_move(self):
-        rock = day2.Move.ROCK
-        paper = day2.Move.PAPER
-        scissors = day2.Move.SCISSORS
-
-        move_points = {
-            rock: 1,
-            paper: 2,
-            scissors: 3,
-        }
-
-        lose = day2.Strategy.LOSE
-        draw = day2.Strategy.DRAW
-        win = day2.Strategy.WIN
-
-        win_pts = 6
-        tie_pts = 3
-        lose_pts = 0
-
-        strat_points = [lose_pts, tie_pts, win_pts]
-
-        for i, move in enumerate([rock, paper, scissors]):
-            for j, strat in enumerate([lose, draw, win]):
-                your_move = day2.get_move(move, strat)
-                assert (
-                    day2.get_points(move, your_move)
-                    == move_points[your_move] + strat_points[j]
-                )
-
-    def test_naive_strategy(self):
+    def test_move_strategy(self):
         # Prepare
         raw_input = day2.get_raw_data()
-        parsed_input = day2.parse_data_naive(raw_input)
-        expected_pts = 15
+        expected_points = 15
 
         # Run
-        actual_pts = day2.get_game_points_naive(parsed_input)
+        parsed_data = day2.parse_data(raw_input, move_mapping, move_mapping)
+        actual_points = day2.calculate_points(parsed_data, point_mappings_moves)
 
         # assert
-        assert actual_pts == expected_pts
+        assert actual_points == expected_points
 
     def test_correct_strategy(self):
         # Prepare
         raw_input = day2.get_raw_data()
-        parsed_input = day2.parse_data_correct(raw_input)
-        expected_pts = 12
+        expected_points = 12
 
         # Run
-        actual_pts = day2.get_game_points_correct(parsed_input)
+        parsed_data = day2.parse_data(raw_input, move_mapping, strategy_mapping)
+        actual_points = day2.calculate_points(parsed_data, point_mappings_strategy)
 
         # assert
-        assert actual_pts == expected_pts
+        assert actual_points == expected_points
