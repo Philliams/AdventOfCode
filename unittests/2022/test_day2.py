@@ -1,10 +1,5 @@
-import hypothesis.strategies as st
-from hypothesis import given
-
 from src.aoc2022 import day2
 
-valid_their_moves = st.sampled_from(["A", "B", "C"])
-valid_your_moves = st.sampled_from(["X", "Y", "Z"])
 
 class TestDay1:
     def test_parse_data(self):
@@ -13,11 +8,7 @@ class TestDay1:
 
         # Run
         actual = day2.parse_data_to_array(raw_input)
-        expected = [
-            ["A", "Y"],
-            ["B", "X"],
-            ["C", "Z"]
-        ]
+        expected = [["A", "Y"], ["B", "X"], ["C", "Z"]]
 
         # Assert
         assert actual == expected
@@ -65,10 +56,6 @@ class TestDay1:
         draw = day2.Strategy.DRAW
         win = day2.Strategy.WIN
 
-        rock_pts = 1
-        paper_pts = 2
-        scissors_pts = 3
-
         win_pts = 6
         tie_pts = 3
         lose_pts = 0
@@ -78,7 +65,10 @@ class TestDay1:
         for i, move in enumerate([rock, paper, scissors]):
             for j, strat in enumerate([lose, draw, win]):
                 your_move = day2.get_move(move, strat)
-                assert day2.get_points(move, your_move) == move_points[your_move] + strat_points[j]
+                assert (
+                    day2.get_points(move, your_move)
+                    == move_points[your_move] + strat_points[j]
+                )
 
     def test_naive_strategy(self):
         # Prepare
@@ -103,6 +93,3 @@ class TestDay1:
 
         # assert
         assert actual_pts == expected_pts
-
-
-        
