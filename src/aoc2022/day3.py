@@ -1,4 +1,5 @@
-from typing import List, Tuple
+from typing import List
+
 
 def get_raw_data(file_path: str = None) -> str:
     """Returns the raw data from a path (or example if path is None)
@@ -25,6 +26,7 @@ def get_raw_data(file_path: str = None) -> str:
             data = file.read()
         return data
 
+
 def item_priority(char: str) -> int:
     """Get the priority value for a character
 
@@ -38,6 +40,7 @@ def item_priority(char: str) -> int:
         return (ord(char) - 65) + 27
     else:
         return (ord(char) - 97) + 1
+
 
 def parse_data_to_array(raw_data: str) -> List[List[int]]:
     """
@@ -60,6 +63,7 @@ def parse_data_to_array(raw_data: str) -> List[List[int]]:
         parsed_data.append(priority_values)
 
     return parsed_data
+
 
 def get_shared_element(left_list: List[int], right_list: List[int]) -> int:
     """
@@ -88,6 +92,7 @@ def get_shared_element(left_list: List[int], right_list: List[int]) -> int:
 
     return left_list[idx]
 
+
 def count_total_priority(items: List[List[int]]) -> int:
     """
     Count the total priority for the 2 compartment case
@@ -100,12 +105,18 @@ def count_total_priority(items: List[List[int]]) -> int:
     """
     sum_ = 0
     for priorities in items:
-        left_list = priorities[:len(priorities)//2]
-        right_list = priorities[len(priorities)//2:]
+
+        n = len(priorities) // 2
+
+        left_list = priorities[:n]
+        right_list = priorities[n:]
         sum_ += get_shared_element(left_list, right_list)
     return sum_
 
-def get_triplet_shared_element(left_list: List[int], middle_list: List[int], right_list: List[int]) -> int:
+
+def get_triplet_shared_element(
+    left_list: List[int], middle_list: List[int], right_list: List[int]
+) -> int:
     """
     Get the shared element between the three lists
 
@@ -121,23 +132,24 @@ def get_triplet_shared_element(left_list: List[int], middle_list: List[int], rig
     :return: shared element between lists
     :rtype: int
     """
-    left_list = sorted(left_list)
-    middle_list = sorted(middle_list)
-    right_list = sorted(right_list)
+    l_list = sorted(left_list)
+    m_list = sorted(middle_list)
+    r_list = sorted(right_list)
 
     idx = 0
     idy = 0
     idz = 0
 
-    while not (left_list[idx] == middle_list[idy] == right_list[idz]):
-        if (left_list[idx] <= middle_list[idy]) and (left_list[idx] <= right_list[idz]):
+    while not (l_list[idx] == m_list[idy] == r_list[idz]):
+        if (l_list[idx] <= m_list[idy]) and (l_list[idx] <= r_list[idz]):
             idx += 1
-        elif (middle_list[idy] <= left_list[idx]) and (middle_list[idy] <= right_list[idz]):
+        elif (m_list[idy] <= l_list[idx]) and (m_list[idy] <= r_list[idz]):
             idy += 1
         else:
             idz += 1
 
-    return left_list[idx]
+    return l_list[idx]
+
 
 def count_triplet_priority(items: List[List[int]]) -> int:
     """
@@ -158,14 +170,13 @@ def count_triplet_priority(items: List[List[int]]) -> int:
         sum_ += get_triplet_shared_element(left_list, middle_list, right_list)
     return sum_
 
+
 if __name__ == "__main__":  # pragma: no cover
     data = get_raw_data("./data/day3.txt")
     parsed_data = parse_data_to_array(data)
 
     total_priority = count_total_priority(parsed_data)
-
     print(f"The incorrect items add up to {total_priority} priority.")
 
     total_priority = count_triplet_priority(parsed_data)
     print(f"The badges add up to {total_priority} priority.")
-
