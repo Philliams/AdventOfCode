@@ -48,7 +48,7 @@ point_mappings_strategy = {
 }
 
 
-class TestDay1:
+class TestDay2:
     def test_move_strategy(self):
         # Prepare
         raw_input = day2.get_raw_data()
