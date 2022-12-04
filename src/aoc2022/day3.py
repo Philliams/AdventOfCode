@@ -54,8 +54,6 @@ def parse_data_to_array(raw_data: str) -> List[List[int]]:
     """
     lines = raw_data.replace(" ", "").strip().split("\n")
 
-    priority_values = [[item_priority(c) for c in line] for line in lines]
-
     parsed_data = []
     for line in lines:
         priority_values = [item_priority(c) for c in line]
