@@ -6,17 +6,21 @@
 Welcome to AdventOfCode's documentation!
 ========================================
 
+Table of Contents
+------------------------
+
 .. toctree::
    :maxdepth: 2
 
    2022
 
-
+Code Coverage
+------------------------
 Code coverage report using Pytest Coverage is available `here <./_static/index.html>`_.
 
 
 Indices and tables
-==================
+------------------------
 
 * :ref:`genindex`
 * :ref:`modindex`
