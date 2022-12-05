@@ -1,30 +1,6 @@
 from typing import List, Tuple
 
-
-def get_raw_data(file_path: str = None) -> str:
-    """Returns the raw data from a path (or example if path is None)
-
-    :param file_path: filepath for data
-    :type file_path: str
-
-    :return: Raw text input for example
-    :rtype: str
-    """
-    raw_data = """
-        2-4,6-8
-        2-3,4-5
-        5-7,7-9
-        2-8,3-7
-        6-6,4-6
-        2-6,4-8
-        """
-
-    if file_path is None:
-        return raw_data
-    else:
-        with open(file_path, "r") as file:
-            data = file.read()
-        return data
+from src.aoc2022.utils import get_raw_data
 
 
 def parse_data_to_array(raw_data: str) -> List[Tuple[int]]:
@@ -92,7 +68,7 @@ def set_overlaps(ranges: Tuple[int]) -> bool:
 
 
 if __name__ == "__main__":  # pragma: no cover
-    data = get_raw_data("./data/day4.txt")
+    data = get_raw_data("./src/aoc2022/data/day4.txt")
     parsed_data = parse_data_to_array(data)
 
     containing_sets = [set_contains_other_set(sets) for sets in parsed_data]

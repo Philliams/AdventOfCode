@@ -1,30 +1,6 @@
 from typing import List
 
-
-def get_raw_data(file_path: str = None) -> str:
-    """Returns the raw data from a path (or example if path is None)
-
-    :param file_path: filepath for data
-    :type file_path: str
-
-    :return: Raw text input for example
-    :rtype: str
-    """
-    raw_data = """
-        vJrwpWtwJgWrhcsFMMfFFhFp
-        jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
-        PmmdzqPrVvPwwTWBwg
-        wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
-        ttgJtRGJQctTZtZT
-        CrZsJsPPZsGzwwsLwLmpwMDw
-        """
-
-    if file_path is None:
-        return raw_data
-    else:
-        with open(file_path, "r") as file:
-            data = file.read()
-        return data
+from src.aoc2022.utils import get_raw_data
 
 
 def item_priority(char: str) -> int:
@@ -170,7 +146,7 @@ def count_triplet_priority(items: List[List[int]]) -> int:
 
 
 if __name__ == "__main__":  # pragma: no cover
-    data = get_raw_data("./data/day3.txt")
+    data = get_raw_data("./src/aoc2022/data/day3.txt")
     parsed_data = parse_data_to_array(data)
 
     total_priority = count_total_priority(parsed_data)

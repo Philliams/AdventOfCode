@@ -1,38 +1,6 @@
 from typing import List, Tuple
 
-
-def get_raw_data(file_path: str = None) -> str:
-    """Returns the raw data from a path (or example if path is None)
-
-    :param file_path: filepath for data
-    :type file_path: str
-
-    :return: Raw text input for example
-    :rtype: str
-    """
-    raw_data = """
-        1000
-        2000
-        3000
-
-        4000
-
-        5000
-        6000
-
-        7000
-        8000
-        9000
-
-        10000
-        """
-
-    if file_path is None:
-        return raw_data
-    else:
-        with open(file_path, "r") as file:
-            data = file.read()
-        return data
+from src.aoc2022.utils import get_raw_data
 
 
 def parse_data_to_array(raw_data: str) -> List[List[int]]:
@@ -121,7 +89,7 @@ def get_3_largest_group_sum(groups: List[List[int]]) -> List[Tuple[int, int]]:
 
 
 if __name__ == "__main__":  # pragma: no cover
-    data = get_raw_data(file_path="./data/day1.txt")
+    data = get_raw_data(file_path="./src/aoc2022/data/day1.txt")
     parsed_data = parse_data_to_array(data)
     idx, sum_ = get_largest_group_sum(parsed_data)
     print(

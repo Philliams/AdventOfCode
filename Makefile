@@ -16,7 +16,7 @@ lint:
 	pre-commit run --all # lint the code
 
 run: # convenience for easily running a file
-	cd src/aoc2022 && python ./day4.py
+	python -m src.aoc2022.days.day5
 
 doc:
 	cd ./docs && sphinx-build -b html ./source ./build

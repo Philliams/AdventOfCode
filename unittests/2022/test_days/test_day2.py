@@ -1,4 +1,4 @@
-from src.aoc2022 import day2
+from src.aoc2022.days import day2
 
 LOSE_PTS = 0
 DRAW_PTS = 3
@@ -51,7 +51,11 @@ point_mappings_strategy = {
 class TestDay2:
     def test_move_strategy(self):
         # Prepare
-        raw_input = day2.get_raw_data()
+        raw_input = """
+        A Y
+        B X
+        C Z
+        """
         expected_points = 15
 
         # Run
@@ -63,7 +67,11 @@ class TestDay2:
 
     def test_correct_strategy(self):
         # Prepare
-        raw_input = day2.get_raw_data()
+        raw_input = """
+        A Y
+        B X
+        C Z
+        """
         expected_points = 12
 
         # Run

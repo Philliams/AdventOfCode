@@ -1,7 +1,7 @@
 import hypothesis.strategies as st
 from hypothesis import given
 
-from src.aoc2022 import day4
+from src.aoc2022.days import day4
 
 range_size = st.integers(min_value=0, max_value=1_000)
 random_integer = st.integers(min_value=-100_000, max_value=100_000)
@@ -65,7 +65,14 @@ def random_overlapping_set(draw):
 class TestDay4:
     def test_parse_data(self):
         # Prepare
-        raw_input = day4.get_raw_data()
+        raw_input = """
+        2-4,6-8
+        2-3,4-5
+        5-7,7-9
+        2-8,3-7
+        6-6,4-6
+        2-6,4-8
+        """
 
         # Run
         actual = day4.parse_data_to_array(raw_input)

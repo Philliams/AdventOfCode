@@ -1,5 +1,5 @@
 # AdventOfCode
-This is my repo for AdventOfCode based off my python [ML template repo](https://github.com/Philliams/ml_template).
+This is my repo for AdventOfCode based off my python [ML template repo](https://github.com/Philliams/ml_template). Each day's code is completely separate in it's own module.
 
 The intent of the code is to explore and refine python best practices. Notable, the following concepts are explored in this repo are:
 * Property-Based testing using `Hypothesis` library (see `./unittests` directory for test code.)

@@ -3,7 +3,7 @@ import random
 import hypothesis.strategies as st
 from hypothesis import given
 
-from src.aoc2022 import day3
+from src.aoc2022.days import day3
 
 list_size = st.integers(min_value=1, max_value=10)
 random_integer = st.integers(min_value=-100_000, max_value=100_000)
@@ -70,7 +70,14 @@ class TestDay3:
 
     def test_count_total_priority(self):
         # Prepare
-        raw_input = day3.get_raw_data()
+        raw_input = """
+        vJrwpWtwJgWrhcsFMMfFFhFp
+        jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+        PmmdzqPrVvPwwTWBwg
+        wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+        ttgJtRGJQctTZtZT
+        CrZsJsPPZsGzwwsLwLmpwMDw
+        """
         parsed_data = day3.parse_data_to_array(raw_input)
         expected_priority = 157
 
@@ -82,7 +89,14 @@ class TestDay3:
 
     def test_count_triplet_priority(self):
         # Prepare
-        raw_input = day3.get_raw_data()
+        raw_input = """
+        vJrwpWtwJgWrhcsFMMfFFhFp
+        jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+        PmmdzqPrVvPwwTWBwg
+        wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+        ttgJtRGJQctTZtZT
+        CrZsJsPPZsGzwwsLwLmpwMDw
+        """
         parsed_data = day3.parse_data_to_array(raw_input)
         expected_priority = 70
 

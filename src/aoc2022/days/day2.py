@@ -1,28 +1,7 @@
 from enum import Enum
 from typing import Dict, List, Tuple
 
-
-def get_raw_data(file_path: str = None) -> str:
-    """Returns the raw data from a path (or example if path is None)
-
-    :param file_path: filepath for data
-    :type file_path: str
-
-    :return: Raw text input for example
-    :rtype: str
-    """
-    raw_data = """
-        A Y
-        B X
-        C Z
-        """
-
-    if file_path is None:
-        return raw_data
-    else:
-        with open(file_path, "r") as file:
-            data = file.read()
-        return data
+from src.aoc2022.utils import get_raw_data
 
 
 def parse_data(
@@ -159,7 +138,7 @@ if __name__ == "__main__":  # pragma: no cover
         (Move.SCISSORS, Strategy.WIN): ROCK_PTS + WIN_PTS,
     }
 
-    raw_data = get_raw_data(file_path="./data/day2.txt")
+    raw_data = get_raw_data(file_path="./src/aoc2022/data/day2.txt")
 
     parsed_data = parse_data(raw_data, move_mapping, move_mapping)
     total_points = calculate_points(parsed_data, point_mappings_part_1)

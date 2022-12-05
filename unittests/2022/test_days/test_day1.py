@@ -1,7 +1,7 @@
 import hypothesis.strategies as st
 from hypothesis import given
 
-from src.aoc2022 import day1
+from src.aoc2022.days import day1
 
 non_neg_integer = st.integers(min_value=0, max_value=100_000)
 integer_list = st.lists(non_neg_integer, min_size=1, max_size=1024)
@@ -11,10 +11,25 @@ list_of_lists = st.lists(integer_list, min_size=3, max_size=64)
 class TestDay1:
     def test_parse_data(self):
         # Prepare
-        raw_input = day1.get_raw_data()
+        raw_data = """
+        1000
+        2000
+        3000
+
+        4000
+
+        5000
+        6000
+
+        7000
+        8000
+        9000
+
+        10000
+        """
 
         # Run
-        actual = day1.parse_data_to_array(raw_input)
+        actual = day1.parse_data_to_array(raw_data)
         expected = [
             [1000, 2000, 3000],
             [4000],
