@@ -11,6 +11,10 @@ Welcome to AdventOfCode's documentation!
 
    2022
 
+
+Code coverage report using Pytest Coverage is available `here <./_static/index.html>`_.
+
+
 Indices and tables
 ==================
 

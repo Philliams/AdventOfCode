@@ -5,6 +5,7 @@ The intent of the code is to explore and refine python best practices. Notable, 
 * Property-Based testing using `Hypothesis` library (see `./unittests` directory for test code.)
 * Auto-generated documentation from docstrings using `Sphinx`.
 * CD/CI using `github actions` (see `.github/workflows` directory for build pipeline)
+* TODO : code coverage report as part of the documentation
 
 To interact with the repo, a makefile is provided with some high-level commands:
 * `make env` will create a conda python environment

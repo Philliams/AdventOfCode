@@ -10,7 +10,7 @@ deps:
 	pip install -r ./dependencies/requirements.txt # install project dependencies
 
 test:
-	python -m pytest --cov=src unittests/ # run pytest + code coverage
+	python -m pytest --cov=src unittests/ --cov-report html:./docs/source/_static # run pytest + code coverage
 
 lint:
 	pre-commit run --all # lint the code

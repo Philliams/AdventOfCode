@@ -31,6 +31,9 @@ jobs:
           pip install -r ./$GITHUB_WORKSPACE/dependencies/requirements.txt
       - name: Lint with precommit
         uses: pre-commit/action@v3.0.0
+      - name: Run pytest and compile coverage report
+        run: |
+          python -m pytest --cov=src unittests/ --cov-report html:./docs/source/_static
       - name: Sphinx build
         run: |
           cd ./$GITHUB_WORKSPACE/docs
