@@ -1,32 +1,35 @@
 AdventOfCode 2022
-========================================
+*************************************
 
 Utils
 ------------------
-.. automodule:: aoc2022.utils
+.. automodule:: src.aoc2022.utils
    :members:
 
-Day 1
+Days
 ------------------
-.. automodule:: aoc2022.days.day1
+
+Day 1
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day1
    :members:
 
 Day 2
-------------------
-.. automodule:: aoc2022.days.day2
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day2
    :members:
 
 Day 3
-------------------
-.. automodule:: aoc2022.days.day3
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day3
    :members:
 
 Day 4
-------------------
-.. automodule:: aoc2022.days.day4
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day4
    :members:
 
 Day 5
-------------------
-.. automodule:: aoc2022.days.day5
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day5
    :members:

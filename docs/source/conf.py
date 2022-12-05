@@ -1,6 +1,6 @@
 import sys
 sys.path
-sys.path.append('../src/')
+sys.path.append('../')
 
 # Configuration file for the Sphinx documentation builder.
 #
