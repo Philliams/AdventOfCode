@@ -10,3 +10,13 @@ Day 2
 ------------------
 .. automodule:: aoc2022.day2
    :members:
+
+Day 3
+------------------
+.. automodule:: aoc2022.day3
+   :members:
+
+Day 4
+------------------
+.. automodule:: aoc2022.day4
+   :members:
