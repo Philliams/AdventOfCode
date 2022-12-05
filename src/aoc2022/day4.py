@@ -1,5 +1,6 @@
 from typing import List, Tuple
 
+
 def get_raw_data(file_path: str = None) -> str:
     """Returns the raw data from a path (or example if path is None)
 
@@ -25,6 +26,7 @@ def get_raw_data(file_path: str = None) -> str:
             data = file.read()
         return data
 
+
 def parse_data_to_array(raw_data: str) -> List[Tuple[int]]:
     """
     Parses the raw text input into lists of value tuples
@@ -39,12 +41,12 @@ def parse_data_to_array(raw_data: str) -> List[Tuple[int]]:
 
     parsed_data = []
     for line in lines:
-        
-        first_pair, second_pair = line.split(",")
-        first_start, first_end = first_pair.split("-")
-        second_start, second_end = second_pair.split("-")
 
-        parsed_data.append((int(first_start), int(first_end), int(second_start), int(second_end)))
+        first_pair, second_pair = line.split(",")
+        first_start, first_end = [int(e) for e in first_pair.split("-")]
+        second_start, second_end = [int(e) for e in second_pair.split("-")]
+
+        parsed_data.append((first_start, first_end, second_start, second_end))
 
     return parsed_data
 
@@ -68,6 +70,7 @@ def set_contains_other_set(ranges: Tuple[int]) -> bool:
     end = min(left_end, right_end)
 
     return (end - start) == min_cardinality
+
 
 def set_overlaps(ranges: Tuple[int]) -> bool:
     """
