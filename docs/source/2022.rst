@@ -38,3 +38,9 @@ Day 6
 ^^^^^^^^^^^^^^^^^^
 .. automodule:: src.aoc2022.days.day6
    :members:
+
+Day 7
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day7
+   :members:
+

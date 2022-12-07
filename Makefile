@@ -6,7 +6,7 @@ env:
 	conda create --name ${env_name} python=3.10 # create new blank conda env
 
 deps:
-	python -m pip install flake8 pre-commit pytest # install some dependencies for linting and testing
+	python -m pip install flake8 flake8-match pre-commit pytest # install some dependencies for linting and testing
 	pip install -r ./dependencies/requirements.txt # install project dependencies
 
 test:
@@ -16,7 +16,7 @@ lint:
 	pre-commit run --all # lint the code
 
 run: # convenience for easily running a file
-	python -m src.aoc2022.days.day6
+	python -m src.aoc2022.days.day7
 
 doc:
 	cd ./docs && sphinx-build -b html ./source ./build

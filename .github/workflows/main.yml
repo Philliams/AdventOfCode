@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install flake8 pre-commit pytest
+          python -m pip install flake8 flake8-match pre-commit pytest
           pip install -r ./$GITHUB_WORKSPACE/dependencies/requirements.txt
       - name: Lint with precommit
         uses: pre-commit/action@v3.0.0
