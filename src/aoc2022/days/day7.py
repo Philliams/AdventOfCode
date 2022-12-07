@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Dict, Generator, List
+from typing import Dict, Generator, List, Optional
 
 from src.aoc2022 import utils
 
@@ -18,9 +18,9 @@ class DirectoryNode:
 
     def __init__(self, dirname: str, level: int):
         self.files: List[FileNode] = []
-        self.children: Dict[DirectoryNode] = {}
+        self.children: Dict[str, DirectoryNode] = {}
         self.dirname: str = dirname
-        self.parent: DirectoryNode = None
+        self.parent: Optional[DirectoryNode] = None
         self.level: int = level
         self.size: int = 0
 
@@ -95,7 +95,7 @@ class FileNode:
 
     def __init__(self, filesize: int, filename: str):
         self.filesize: int = filesize
-        self.filename: int = filename
+        self.filename: str = filename
 
     def __repr__(self) -> str:
         return f"FILE : {self.filename} {self.filesize}"
@@ -117,10 +117,11 @@ def parse_data_to_tree(raw_data: str) -> DirectoryNode:
     root = DirectoryNode("/", 0)
     current = root
 
+    # Type ignores since linting tools do not like structural pattern matching
     for line in lines:
         match line.split(" "):  # noqa
             case ["$", "cd", ".."]:  # noqa: E211
-                current = current.parent
+                current = current.parent  # type: ignore
             case ["$", "cd", "/"]:  # noqa: E211
                 current = root
             case ["$", "cd", dirname]:  # noqa: E211

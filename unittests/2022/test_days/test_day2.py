@@ -1,4 +1,5 @@
 from src.aoc2022.days import day2
+from src.aoc2022.days.day2 import Move, Strategy
 
 LOSE_PTS = 0
 DRAW_PTS = 3
@@ -9,42 +10,42 @@ PAPER_PTS = 2
 SCISSORS_PTS = 3
 
 move_mapping = {
-    "A": day2.Move.ROCK,
-    "B": day2.Move.PAPER,
-    "C": day2.Move.SCISSORS,
-    "X": day2.Move.ROCK,
-    "Y": day2.Move.PAPER,
-    "Z": day2.Move.SCISSORS,
+    "A": Move.ROCK,
+    "B": Move.PAPER,
+    "C": Move.SCISSORS,
+    "X": Move.ROCK,
+    "Y": Move.PAPER,
+    "Z": Move.SCISSORS,
 }
 
 strategy_mapping = {
-    "X": day2.Strategy.LOSE,
-    "Y": day2.Strategy.DRAW,
-    "Z": day2.Strategy.WIN,
+    "X": Strategy.LOSE,
+    "Y": Strategy.DRAW,
+    "Z": Strategy.WIN,
 }
 
 point_mappings_moves = {
-    (day2.Move.ROCK, day2.Move.ROCK): ROCK_PTS + DRAW_PTS,
-    (day2.Move.PAPER, day2.Move.ROCK): ROCK_PTS + LOSE_PTS,
-    (day2.Move.SCISSORS, day2.Move.ROCK): ROCK_PTS + WIN_PTS,
-    (day2.Move.ROCK, day2.Move.PAPER): PAPER_PTS + WIN_PTS,
-    (day2.Move.PAPER, day2.Move.PAPER): PAPER_PTS + DRAW_PTS,
-    (day2.Move.SCISSORS, day2.Move.PAPER): PAPER_PTS + LOSE_PTS,
-    (day2.Move.ROCK, day2.Move.SCISSORS): SCISSORS_PTS + LOSE_PTS,
-    (day2.Move.PAPER, day2.Move.SCISSORS): SCISSORS_PTS + WIN_PTS,
-    (day2.Move.SCISSORS, day2.Move.SCISSORS): SCISSORS_PTS + DRAW_PTS,
+    (Move.ROCK.value, Move.ROCK.value): ROCK_PTS + DRAW_PTS,
+    (Move.PAPER.value, Move.ROCK.value): ROCK_PTS + LOSE_PTS,
+    (Move.SCISSORS.value, Move.ROCK.value): ROCK_PTS + WIN_PTS,
+    (Move.ROCK.value, Move.PAPER.value): PAPER_PTS + WIN_PTS,
+    (Move.PAPER.value, Move.PAPER.value): PAPER_PTS + DRAW_PTS,
+    (Move.SCISSORS.value, Move.PAPER.value): PAPER_PTS + LOSE_PTS,
+    (Move.ROCK.value, Move.SCISSORS.value): SCISSORS_PTS + LOSE_PTS,
+    (Move.PAPER.value, Move.SCISSORS.value): SCISSORS_PTS + WIN_PTS,
+    (Move.SCISSORS.value, Move.SCISSORS.value): SCISSORS_PTS + DRAW_PTS,
 }
 
 point_mappings_strategy = {
-    (day2.Move.ROCK, day2.Strategy.LOSE): SCISSORS_PTS + LOSE_PTS,
-    (day2.Move.PAPER, day2.Strategy.LOSE): ROCK_PTS + LOSE_PTS,
-    (day2.Move.SCISSORS, day2.Strategy.LOSE): PAPER_PTS + LOSE_PTS,
-    (day2.Move.ROCK, day2.Strategy.DRAW): ROCK_PTS + DRAW_PTS,
-    (day2.Move.PAPER, day2.Strategy.DRAW): PAPER_PTS + DRAW_PTS,
-    (day2.Move.SCISSORS, day2.Strategy.DRAW): SCISSORS_PTS + DRAW_PTS,
-    (day2.Move.ROCK, day2.Strategy.WIN): PAPER_PTS + WIN_PTS,
-    (day2.Move.PAPER, day2.Strategy.WIN): SCISSORS_PTS + WIN_PTS,
-    (day2.Move.SCISSORS, day2.Strategy.WIN): ROCK_PTS + WIN_PTS,
+    (Move.ROCK.value, Strategy.LOSE.value): SCISSORS_PTS + LOSE_PTS,
+    (Move.PAPER.value, Strategy.LOSE.value): ROCK_PTS + LOSE_PTS,
+    (Move.SCISSORS.value, Strategy.LOSE.value): PAPER_PTS + LOSE_PTS,
+    (Move.ROCK.value, Strategy.DRAW.value): ROCK_PTS + DRAW_PTS,
+    (Move.PAPER.value, Strategy.DRAW.value): PAPER_PTS + DRAW_PTS,
+    (Move.SCISSORS.value, Strategy.DRAW.value): SCISSORS_PTS + DRAW_PTS,
+    (Move.ROCK.value, Strategy.WIN.value): PAPER_PTS + WIN_PTS,
+    (Move.PAPER.value, Strategy.WIN.value): SCISSORS_PTS + WIN_PTS,
+    (Move.SCISSORS.value, Strategy.WIN.value): ROCK_PTS + WIN_PTS,
 }
 
 

@@ -20,6 +20,7 @@ def detect_start_of_packet(sequence: str, num_distinct: int) -> int:
         vals = sequence[offset:i]
         if len(set(vals)) == num_distinct:
             return i
+    return -1
 
 
 if __name__ == "__main__":  # pragma: no cover

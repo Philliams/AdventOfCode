@@ -2,8 +2,10 @@ from typing import List, Tuple
 
 from src.aoc2022.utils import get_raw_data
 
+row_type = Tuple[int, int, int, int]
 
-def parse_data_to_array(raw_data: str) -> List[Tuple[int]]:
+
+def parse_data_to_array(raw_data: str) -> List[row_type]:
     """
     Parses the raw text input into lists of value tuples
 
@@ -27,7 +29,7 @@ def parse_data_to_array(raw_data: str) -> List[Tuple[int]]:
     return parsed_data
 
 
-def set_contains_other_set(ranges: Tuple[int]) -> bool:
+def set_contains_other_set(ranges: row_type) -> bool:
     """
     check whether one of the ranges in entirely contained by the other
 
@@ -48,7 +50,7 @@ def set_contains_other_set(ranges: Tuple[int]) -> bool:
     return (end - start) == min_cardinality
 
 
-def set_overlaps(ranges: Tuple[int]) -> bool:
+def set_overlaps(ranges: row_type) -> bool:
     """
     check whether the sets overlap at all
 

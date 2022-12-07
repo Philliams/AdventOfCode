@@ -18,3 +18,8 @@ repos:
     hooks:
       - id: flake8
         additional_dependencies: [flake8-match==1.0.0]
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: "v0.991"
+    hooks:
+    -   id: mypy
+        exclude: ^docs/

@@ -22,8 +22,19 @@ class TestDay6:
         # Prepare
 
         # Run
-
         actual_pos = day6.detect_start_of_packet(seq, num_unique)
+
+        # Assert
+        assert actual_pos == expected_pos
+
+    def test_detect_start_of_packet_no_packet(self):
+        # Prepare
+        invalid_sequence = "aaaaaaaaaaaa"
+        num_unique = 4
+        expected_pos = -1
+
+        # Run
+        actual_pos = day6.detect_start_of_packet(invalid_sequence, num_unique)
 
         # Assert
         assert actual_pos == expected_pos

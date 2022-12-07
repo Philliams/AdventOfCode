@@ -2,8 +2,8 @@ from typing import List, Tuple
 
 from src.aoc2022 import utils
 
-stacks_type = Tuple[List[str]]
-moves_type = List[Tuple[int]]
+stacks_type = Tuple[List[str], ...]
+moves_type = List[Tuple[int, int, int]]
 
 
 def parse_data(raw_data: str) -> Tuple[stacks_type, moves_type]:
@@ -22,7 +22,7 @@ def parse_data(raw_data: str) -> Tuple[stacks_type, moves_type]:
     reversed_rows = stack_rows[::-1]
     num_stacks = int(reversed_rows[0].split(" ")[-2])
 
-    stacks = tuple([] for _ in range(num_stacks))
+    stacks: Tuple[List[str], ...] = tuple([] for _ in range(num_stacks))
 
     for row in reversed_rows[1:]:
         values = row[1::4]
