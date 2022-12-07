@@ -33,3 +33,8 @@ Day 5
 ^^^^^^^^^^^^^^^^^^
 .. automodule:: src.aoc2022.days.day5
    :members:
+
+Day 6
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day6
+   :members:

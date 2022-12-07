@@ -10,13 +10,13 @@ deps:
 	pip install -r ./dependencies/requirements.txt # install project dependencies
 
 test:
-	python -m pytest --cov=src unittests/ --cov-report html:./docs/source/_static # run pytest + code coverage
+	python -m pytest --cov=src unittests/ --cov-report term --cov-report html:./docs/source/_static # run pytest + code coverage
 
 lint:
 	pre-commit run --all # lint the code
 
 run: # convenience for easily running a file
-	python -m src.aoc2022.days.day5
+	python -m src.aoc2022.days.day6
 
 doc:
 	cd ./docs && sphinx-build -b html ./source ./build
