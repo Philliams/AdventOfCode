@@ -44,3 +44,8 @@ Day 7
 .. automodule:: src.aoc2022.days.day7
    :members:
 
+Day 8
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day8
+   :members:
+
