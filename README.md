@@ -5,6 +5,7 @@ The intent of the code is to explore and refine python best practices. Notable, 
 * Property-Based testing using `Hypothesis` library (see `./unittests` directory for test code.)
 * Auto-generated documentation from docstrings using `Sphinx`.
 * Code coverage report is generated and included as part of the documentation [here](https://philliams.github.io/AdventOfCode/#code-coverage).
+* Static analysis and type checking using `MyPy`.
 * CD/CI using `github actions` (see `.github/workflows` directory for build pipeline)
 
 
