@@ -38,7 +38,7 @@ def parse_data_to_array(raw_data: str) -> List[Tuple[Move, int]]:
     :type raw_data: str
 
     :return: parsed matrix of values
-    :rtype: List[List[int]]
+    :rtype: List[Tuple[Move, int]]
     """
     parsed_list = []
     for line in raw_data.split("\n"):
