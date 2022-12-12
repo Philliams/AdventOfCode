@@ -1,33 +1,5 @@
+from src.aoc2022 import utils
 from src.aoc2022.days import day7
-
-
-def get_sample_raw_data():
-    sample_data = """
-$ cd /
-$ ls
-dir a
-14848514 b.txt
-8504156 c.dat
-dir d
-$ cd a
-$ ls
-dir e
-29116 f
-2557 g
-62596 h.lst
-$ cd e
-$ ls
-584 i
-$ cd ..
-$ cd ..
-$ cd d
-$ ls
-4060174 j
-8033020 d.log
-5626152 d.ext
-7214296 k
-"""
-    return sample_data
 
 
 def get_sample_directory_structure():
@@ -107,10 +79,11 @@ class TestDay7:
             )
 
         expected_directory_structure = get_sample_directory_structure()
-        sample_data = get_sample_raw_data()
+        test_data_path = "./unittests/2022/test_data/day7_sample.txt"
+        input_data = utils.get_raw_data(test_data_path)
 
         # Run
-        actual_directory_structure = day7.parse_data_to_tree(sample_data)
+        actual_directory_structure = day7.parse_data_to_tree(input_data)
 
         # Assert
         assert directories_equal(
