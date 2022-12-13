@@ -64,3 +64,13 @@ Day 11
 .. automodule:: src.aoc2022.days.day11
    :members:
 
+Day 12
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day12
+   :members:
+
+Day 13
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day13
+   :members:
+
