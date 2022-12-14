@@ -74,3 +74,8 @@ Day 13
 .. automodule:: src.aoc2022.days.day13
    :members:
 
+Day 14
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day14
+   :members:
+

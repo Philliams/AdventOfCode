@@ -97,8 +97,6 @@ def sort_packets(packets: List[pack_type]) -> List[pack_type]:
 
 if __name__ == "__main__":  # pragma: no cover
 
-    sample_input = """"""
-
     raw_data = utils.get_raw_data("./src/aoc2022/data/day13.txt")
     parsed_data = parse_data_to_array(raw_data)
 
