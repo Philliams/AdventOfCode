@@ -1,0 +1,1660 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>AdventOfCode 2022 &#8212; Advent Of Code  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to AdventOfCode’s documentation!" href="index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to AdventOfCode’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Advent Of Code  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">AdventOfCode 2022</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="adventofcode-2022">
+<h1>AdventOfCode 2022<a class="headerlink" href="#adventofcode-2022" title="Permalink to this heading">¶</a></h1>
+<section id="module-src.aoc2022.utils">
+<span id="utils"></span><h2>Utils<a class="headerlink" href="#module-src.aoc2022.utils" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.utils.get_raw_data">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.utils.</span></span><span class="sig-name descname"><span class="pre">get_raw_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#src.aoc2022.utils.get_raw_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the raw data from a path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file_path</strong> (<em>str</em>) – filepath for data</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Raw text input for example</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="days">
+<h2>Days<a class="headerlink" href="#days" title="Permalink to this heading">¶</a></h2>
+<section id="module-src.aoc2022.days.day1">
+<span id="day-1"></span><h3>Day 1<a class="headerlink" href="#module-src.aoc2022.days.day1" title="Permalink to this heading">¶</a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day1.get_3_largest_group_sum">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day1.</span></span><span class="sig-name descname"><span class="pre">get_3_largest_group_sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">groups</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day1.get_3_largest_group_sum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the 3 top group with the largests sums</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>groups</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><em>int</em><em>]</em><em>]</em>) – A list of groups, where each group is a list of integers</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Index of the 3 groups with the largests sums + corresponding sums</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[Tuple[int, int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day1.get_largest_group_sum">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day1.</span></span><span class="sig-name descname"><span class="pre">get_largest_group_sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">groups</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day1.get_largest_group_sum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the group with the largest sum</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>groups</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><em>int</em><em>]</em><em>]</em>) – A list of groups, where each group is a list of integers</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Index of the group with the largest sum and corresponding sum</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple[int, int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day1.parse_data_to_array">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day1.</span></span><span class="sig-name descname"><span class="pre">parse_data_to_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day1.parse_data_to_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses the raw text input into lists of numerical values,
+with one list per grouping of lines</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>raw_data</strong> (<em>str</em>) – Raw text data to be parsed</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Parsed integer values</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[List[int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src.aoc2022.days.day2">
+<span id="day-2"></span><h3>Day 2<a class="headerlink" href="#module-src.aoc2022.days.day2" title="Permalink to this heading">¶</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.aoc2022.days.day2.Move">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day2.</span></span><span class="sig-name descname"><span class="pre">Move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.aoc2022.days.day2.Move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enum for valid Rock-Paper-Scissors game</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.aoc2022.days.day2.Move.PAPER">
+<span class="sig-name descname"><span class="pre">PAPER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#src.aoc2022.days.day2.Move.PAPER" title="Permalink to this definition">¶</a></dt>
+<dd><p>Value for ‘Paper’ move.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.aoc2022.days.day2.Move.ROCK">
+<span class="sig-name descname"><span class="pre">ROCK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#src.aoc2022.days.day2.Move.ROCK" title="Permalink to this definition">¶</a></dt>
+<dd><p>Value for ‘Rock’ move.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.aoc2022.days.day2.Move.SCISSORS">
+<span class="sig-name descname"><span class="pre">SCISSORS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#src.aoc2022.days.day2.Move.SCISSORS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Value for ‘Scissors’ move.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.aoc2022.days.day2.Strategy">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day2.</span></span><span class="sig-name descname"><span class="pre">Strategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.aoc2022.days.day2.Strategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enum for valid strategies</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.aoc2022.days.day2.Strategy.DRAW">
+<span class="sig-name descname"><span class="pre">DRAW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#src.aoc2022.days.day2.Strategy.DRAW" title="Permalink to this definition">¶</a></dt>
+<dd><p>Value for ‘Draw’ strategy.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.aoc2022.days.day2.Strategy.LOSE">
+<span class="sig-name descname"><span class="pre">LOSE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#src.aoc2022.days.day2.Strategy.LOSE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Value for ‘Lose’ strategy.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.aoc2022.days.day2.Strategy.WIN">
+<span class="sig-name descname"><span class="pre">WIN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#src.aoc2022.days.day2.Strategy.WIN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Value for ‘Win’ strategy.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day2.calculate_points">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day2.</span></span><span class="sig-name descname"><span class="pre">calculate_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rounds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pts_mapping</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#src.aoc2022.days.day2.calculate_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the number of points given a list of rounds and a point mapping</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rounds</strong> (<em>List</em><em>[</em><em>Tuple</em><em>[</em><em>Enum</em><em>, </em><em>Enum</em><em>]</em><em>]</em>) – List of tuples for each round</p></li>
+<li><p><strong>pts_mapping</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Enum</em><em>]</em>) – Mapping to convert a round to a point count</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total score across all rounds</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day2.parse_data">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day2.</span></span><span class="sig-name descname"><span class="pre">parse_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l_mapping</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#src.aoc2022.days.day2.Move" title="src.aoc2022.days.day2.Move"><span class="pre">Move</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_mapping</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#src.aoc2022.days.day2.Move" title="src.aoc2022.days.day2.Move"><span class="pre">Move</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#src.aoc2022.days.day2.Strategy" title="src.aoc2022.days.day2.Strategy"><span class="pre">Strategy</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day2.parse_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses the raw text input into lists of tuples of (Enum, Enum)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>raw_data</strong> (<em>str</em>) – Raw text data to be parsed</p></li>
+<li><p><strong>l_mapping</strong> – Mapping to convert string to enum value</p></li>
+<li><p><strong>r_mapping</strong> – Mapping to convert string to enum value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of parsed tuples</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[Tuple[Enum, Enum]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src.aoc2022.days.day3">
+<span id="day-3"></span><h3>Day 3<a class="headerlink" href="#module-src.aoc2022.days.day3" title="Permalink to this heading">¶</a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day3.count_total_priority">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day3.</span></span><span class="sig-name descname"><span class="pre">count_total_priority</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#src.aoc2022.days.day3.count_total_priority" title="Permalink to this definition">¶</a></dt>
+<dd><p>Count the total priority for the 2 compartment case</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>items</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><em>int</em><em>]</em><em>]</em>) – list of all backpack contents</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>total sum of priority for the shared items</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day3.count_triplet_priority">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day3.</span></span><span class="sig-name descname"><span class="pre">count_triplet_priority</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#src.aoc2022.days.day3.count_triplet_priority" title="Permalink to this definition">¶</a></dt>
+<dd><p>Count the total priority for the 3 compartment case</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>items</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><em>int</em><em>]</em><em>]</em>) – list of all backpack contents</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>total sum of priority for the shared items</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day3.get_shared_element">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day3.</span></span><span class="sig-name descname"><span class="pre">get_shared_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">left_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#src.aoc2022.days.day3.get_shared_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the shared element between the two lists</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>left_list</strong> (<em>List</em><em>[</em><em>int</em><em>]</em>) – left list of items</p></li>
+<li><p><strong>right_list</strong> (<em>List</em><em>[</em><em>int</em><em>]</em>) – right list of items</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>shared element between lists</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day3.get_triplet_shared_element">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day3.</span></span><span class="sig-name descname"><span class="pre">get_triplet_shared_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">left_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">middle_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#src.aoc2022.days.day3.get_triplet_shared_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the shared element between the three lists</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>left_list</strong> (<em>List</em><em>[</em><em>int</em><em>]</em>) – left list of items</p></li>
+<li><p><strong>middle_list</strong> (<em>List</em><em>[</em><em>int</em><em>]</em>) – left list of items</p></li>
+<li><p><strong>right_list</strong> (<em>List</em><em>[</em><em>int</em><em>]</em>) – right list of items</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>shared element between lists</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day3.item_priority">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day3.</span></span><span class="sig-name descname"><span class="pre">item_priority</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">char</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#src.aoc2022.days.day3.item_priority" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the priority value for a character</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>char</strong> (<em>str</em>) – the character to convert to a priority value</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Priority value</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day3.parse_data_to_array">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day3.</span></span><span class="sig-name descname"><span class="pre">parse_data_to_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day3.parse_data_to_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses the raw text input into lists of priority values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>raw_data</strong> (<em>str</em>) – Raw text data to be parsed</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Parsed list of lists values</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[List[int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src.aoc2022.days.day4">
+<span id="day-4"></span><h3>Day 4<a class="headerlink" href="#module-src.aoc2022.days.day4" title="Permalink to this heading">¶</a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day4.parse_data_to_array">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day4.</span></span><span class="sig-name descname"><span class="pre">parse_data_to_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day4.parse_data_to_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses the raw text input into lists of value tuples</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>raw_data</strong> (<em>str</em>) – Raw text data to be parsed</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Parsed list of value tuples</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[Tuple[int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day4.set_contains_other_set">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day4.</span></span><span class="sig-name descname"><span class="pre">set_contains_other_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ranges</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#src.aoc2022.days.day4.set_contains_other_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>check whether one of the ranges in entirely contained by the other</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ranges</strong> (<em>Tuple</em><em>[</em><em>int</em><em>]</em>) – tuple of (start_left, end_left, start_right, end_right)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>flag whether if one set is a subset of the other</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day4.set_overlaps">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day4.</span></span><span class="sig-name descname"><span class="pre">set_overlaps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ranges</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#src.aoc2022.days.day4.set_overlaps" title="Permalink to this definition">¶</a></dt>
+<dd><p>check whether the sets overlap at all</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ranges</strong> (<em>Tuple</em><em>[</em><em>int</em><em>]</em>) – tuple of (start_left, end_left, start_right, end_right)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>flag whether the sets overlap</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src.aoc2022.days.day5">
+<span id="day-5"></span><h3>Day 5<a class="headerlink" href="#module-src.aoc2022.days.day5" title="Permalink to this heading">¶</a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day5.parse_data">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day5.</span></span><span class="sig-name descname"><span class="pre">parse_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day5.parse_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses the raw text input into the initial configuration and the move list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>raw_data</strong> (<em>str</em>) – Raw text data to be parsed</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Initial Configuration and move list</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[Tuple[int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day5.transfer_items">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day5.</span></span><span class="sig-name descname"><span class="pre">transfer_items</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stacks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moves</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#src.aoc2022.days.day5.transfer_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the final state of the stacks after applying the moves</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stacks</strong> (<em>Tuple</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Tuple of lists representing each stack</p></li>
+<li><p><strong>moves</strong> (<em>List</em><em>[</em><em>Tuple</em><em>[</em><em>int</em><em>]</em><em>]</em>) – List of tuples for each move</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>value at the top of each stack after moves</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day5.transfer_multiple_items">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day5.</span></span><span class="sig-name descname"><span class="pre">transfer_multiple_items</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stacks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moves</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#src.aoc2022.days.day5.transfer_multiple_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the final state of the stacks after applying the moves
+moving multiple boxes in a single move</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stacks</strong> (<em>Tuple</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Tuple of lists representing each stack</p></li>
+<li><p><strong>moves</strong> (<em>List</em><em>[</em><em>Tuple</em><em>[</em><em>int</em><em>]</em><em>]</em>) – List of tuples for each move</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>value at the top of each stack after moves</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src.aoc2022.days.day6">
+<span id="day-6"></span><h3>Day 6<a class="headerlink" href="#module-src.aoc2022.days.day6" title="Permalink to this heading">¶</a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day6.detect_start_of_packet">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day6.</span></span><span class="sig-name descname"><span class="pre">detect_start_of_packet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sequence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_distinct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#src.aoc2022.days.day6.detect_start_of_packet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies the position of the starting packet defined by num_distinct
+consecutive unique characters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sequence</strong> (<em>str</em>) – Sequence of characters to detect the start packet</p></li>
+<li><p><strong>num_distinct</strong> (<em>int</em>) – Number of consecutive distinct characters needed</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Position of the end of the starting packet</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src.aoc2022.days.day7">
+<span id="day-7"></span><h3>Day 7<a class="headerlink" href="#module-src.aoc2022.days.day7" title="Permalink to this heading">¶</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.aoc2022.days.day7.DirectoryNode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day7.</span></span><span class="sig-name descname"><span class="pre">DirectoryNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dirname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.aoc2022.days.day7.DirectoryNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class representing a single directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dirname</strong> (<em>str</em>) – the name of the directory</p></li>
+<li><p><strong>level</strong> (<em>int</em>) – the depth of the directory in the tree structure</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.aoc2022.days.day7.DirectoryNode.add_child">
+<span class="sig-name descname"><span class="pre">add_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#src.aoc2022.days.day7.DirectoryNode" title="src.aoc2022.days.day7.DirectoryNode"><span class="pre">DirectoryNode</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.aoc2022.days.day7.DirectoryNode.add_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a child directory to this directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>child</strong> (<a class="reference internal" href="#src.aoc2022.days.day7.DirectoryNode" title="src.aoc2022.days.day7.DirectoryNode"><em>DirectoryNode</em></a>) – child directory to add</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.aoc2022.days.day7.DirectoryNode.add_file">
+<span class="sig-name descname"><span class="pre">add_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#src.aoc2022.days.day7.FileNode" title="src.aoc2022.days.day7.FileNode"><span class="pre">FileNode</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.aoc2022.days.day7.DirectoryNode.add_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a child file to this directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>child</strong> (<a class="reference internal" href="#src.aoc2022.days.day7.FileNode" title="src.aoc2022.days.day7.FileNode"><em>FileNode</em></a>) – child file to add</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.aoc2022.days.day7.DirectoryNode.get_child">
+<span class="sig-name descname"><span class="pre">get_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dirname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.aoc2022.days.day7.DirectoryNode.get_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a child directory by name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dirname</strong> (<em>str</em>) – name of child directory to retrieve</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.aoc2022.days.day7.DirectoryNode.update_size">
+<span class="sig-name descname"><span class="pre">update_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">updated_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.aoc2022.days.day7.DirectoryNode.update_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the size of this directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>updated_size</strong> (<em>int</em>) – number of bytes to add to current size</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.aoc2022.days.day7.FileNode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day7.</span></span><span class="sig-name descname"><span class="pre">FileNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filesize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.aoc2022.days.day7.FileNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class representing a single file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filesize</strong> (<em>int</em>) – the size of the file in bytes</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – the name of the file</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day7.get_directories_under_size">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day7.</span></span><span class="sig-name descname"><span class="pre">get_directories_under_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#src.aoc2022.days.day7.DirectoryNode" title="src.aoc2022.days.day7.DirectoryNode"><span class="pre">DirectoryNode</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#src.aoc2022.days.day7.get_directories_under_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the sum of directory sizes for all directories with a max
+size under the given threshold</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>root</strong> (<a class="reference internal" href="#src.aoc2022.days.day7.DirectoryNode" title="src.aoc2022.days.day7.DirectoryNode"><em>DirectoryNode</em></a>) – root node for the directory/file tree</p></li>
+<li><p><strong>max_size</strong> (<em>int</em>) – maximum allowable size for a directory to be kept</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>sum of total sizes for directories smaller than max_size</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day7.get_smallest_directory_to_delete">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day7.</span></span><span class="sig-name descname"><span class="pre">get_smallest_directory_to_delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#src.aoc2022.days.day7.DirectoryNode" title="src.aoc2022.days.day7.DirectoryNode"><span class="pre">DirectoryNode</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_space</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">needed_space</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#src.aoc2022.days.day7.get_smallest_directory_to_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the smallest directory to delete to free the needed space</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>root</strong> (<a class="reference internal" href="#src.aoc2022.days.day7.DirectoryNode" title="src.aoc2022.days.day7.DirectoryNode"><em>DirectoryNode</em></a>) – root node for the directory/file tree</p></li>
+<li><p><strong>total_space</strong> (<em>int</em>) – total space of the storage device</p></li>
+<li><p><strong>needed_space</strong> (<em>int</em>) – amount of free space required</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>size of the directory to delete</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day7.parse_data_to_tree">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day7.</span></span><span class="sig-name descname"><span class="pre">parse_data_to_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#src.aoc2022.days.day7.DirectoryNode" title="src.aoc2022.days.day7.DirectoryNode"><span class="pre">DirectoryNode</span></a></span></span><a class="headerlink" href="#src.aoc2022.days.day7.parse_data_to_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the raw data into a tree-structure representing the nodes and files</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>raw_data</strong> (<em>str</em>) – Raw data containing commands</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Root of the directory tree</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#src.aoc2022.days.day7.DirectoryNode" title="src.aoc2022.days.day7.DirectoryNode">DirectoryNode</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day7.tree_iterator">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day7.</span></span><span class="sig-name descname"><span class="pre">tree_iterator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#src.aoc2022.days.day7.DirectoryNode" title="src.aoc2022.days.day7.DirectoryNode"><span class="pre">DirectoryNode</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Generator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#src.aoc2022.days.day7.DirectoryNode" title="src.aoc2022.days.day7.DirectoryNode"><span class="pre">DirectoryNode</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day7.tree_iterator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produces a generator for traversing the directory/file tree</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>node</strong> (<a class="reference internal" href="#src.aoc2022.days.day7.DirectoryNode" title="src.aoc2022.days.day7.DirectoryNode"><em>DirectoryNode</em></a>) – node to traverse</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Generator for traversing the directory/file tree</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Generator[<a class="reference internal" href="#src.aoc2022.days.day7.DirectoryNode" title="src.aoc2022.days.day7.DirectoryNode">DirectoryNode</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src.aoc2022.days.day8">
+<span id="day-8"></span><h3>Day 8<a class="headerlink" href="#module-src.aoc2022.days.day8" title="Permalink to this heading">¶</a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day8.compute_scenic_score">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day8.</span></span><span class="sig-name descname"><span class="pre">compute_scenic_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">height_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#src.aoc2022.days.day8.compute_scenic_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the scenic view given a starting position</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>height_map</strong> (<em>np.ndarray</em>) – 2D array of heights</p></li>
+<li><p><strong>pos</strong> (<em>Tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em>) – tuple of (x, y) positions in the grid</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Scenic score of the position given</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day8.count_visible_trees">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day8.</span></span><span class="sig-name descname"><span class="pre">count_visible_trees</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">height_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#src.aoc2022.days.day8.count_visible_trees" title="Permalink to this definition">¶</a></dt>
+<dd><p>Count number of trees visible from perimeter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>height_map</strong> (<em>np.ndarray</em>) – 2D array of heights</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total count of trees visible from perimeter</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day8.get_max_scenic_score">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day8.</span></span><span class="sig-name descname"><span class="pre">get_max_scenic_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">height_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#src.aoc2022.days.day8.get_max_scenic_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the maximum scenic score given the height map</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>height_map</strong> (<em>np.ndarray</em>) – 2D array of heights</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Maximum possible scenic score</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day8.parse_data_to_array">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day8.</span></span><span class="sig-name descname"><span class="pre">parse_data_to_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#src.aoc2022.days.day8.parse_data_to_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the raw data into a 2D list of lists</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>raw_data</strong> (<em>str</em>) – Raw data containing numerical data</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>parsed matrix of values</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[List[int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day8.scan_height_row">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day8.</span></span><span class="sig-name descname"><span class="pre">scan_height_row</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">height_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day8.scan_height_row" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scan a list of heights to determine which trees are visible from either
+side</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>height_map</strong> (<em>np.ndarray</em>) – 1D array of heights</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Set of positions that are visible from either side</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Set[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src.aoc2022.days.day9">
+<span id="day-9"></span><h3>Day 9<a class="headerlink" href="#module-src.aoc2022.days.day9" title="Permalink to this heading">¶</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.aoc2022.days.day9.Move">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day9.</span></span><span class="sig-name descname"><span class="pre">Move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.aoc2022.days.day9.Move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enum for valid rope moves</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.aoc2022.days.day9.Move.DOWN">
+<span class="sig-name descname"><span class="pre">DOWN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'D'</span></em><a class="headerlink" href="#src.aoc2022.days.day9.Move.DOWN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Value for ‘DOWN’ move.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.aoc2022.days.day9.Move.LEFT">
+<span class="sig-name descname"><span class="pre">LEFT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'L'</span></em><a class="headerlink" href="#src.aoc2022.days.day9.Move.LEFT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Value for ‘LEFT’ move.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.aoc2022.days.day9.Move.RIGHT">
+<span class="sig-name descname"><span class="pre">RIGHT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'R'</span></em><a class="headerlink" href="#src.aoc2022.days.day9.Move.RIGHT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Value for ‘RIGHT’ move.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.aoc2022.days.day9.Move.UP">
+<span class="sig-name descname"><span class="pre">UP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'U'</span></em><a class="headerlink" href="#src.aoc2022.days.day9.Move.UP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Value for ‘UP’ move.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day9.parse_data_to_array">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day9.</span></span><span class="sig-name descname"><span class="pre">parse_data_to_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#src.aoc2022.days.day9.Move" title="src.aoc2022.days.day9.Move"><span class="pre">Move</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day9.parse_data_to_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the raw data into a 1D list of move Tuples</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>raw_data</strong> (<em>str</em>) – Raw data containing numerical data</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>parsed matrix of values</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[Tuple[<a class="reference internal" href="#src.aoc2022.days.day9.Move" title="src.aoc2022.days.day9.Move">Move</a>, int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src.aoc2022.days.day10">
+<span id="day-10"></span><h3>Day 10<a class="headerlink" href="#module-src.aoc2022.days.day10" title="Permalink to this heading">¶</a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day10.get_total_signal_strength">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day10.</span></span><span class="sig-name descname"><span class="pre">get_total_signal_strength</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instructions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#src.aoc2022.days.day10.get_total_signal_strength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the total signal strength as sum of cycle * register value for
+n = 20, 60, 100, 140…</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>instructions</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – List of instructions to execute</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>total signal strength</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day10.parse_data_to_array">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day10.</span></span><span class="sig-name descname"><span class="pre">parse_data_to_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day10.parse_data_to_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the raw data into a 1D list of instruction sets</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>raw_data</strong> (<em>str</em>) – Raw data containing numerical data</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>parsed matrix of values</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[List[str]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day10.render_cpu_pixel_values">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day10.</span></span><span class="sig-name descname"><span class="pre">render_cpu_pixel_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instructions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#src.aoc2022.days.day10.render_cpu_pixel_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render the signal to a simulated console</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>instructions</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – List of instructions to execute</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>rendered console output</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day10.simulate_cpu_state_machine">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day10.</span></span><span class="sig-name descname"><span class="pre">simulate_cpu_state_machine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instructions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Generator</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day10.simulate_cpu_state_machine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a generator that simulates the CPU on a per-cycle basis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>instructions</strong> (<em>List</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – List of instructions to execute</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>per-cycle CPU simulator</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Generator[Tuple[int, int], None, None]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src.aoc2022.days.day11">
+<span id="day-11"></span><h3>Day 11<a class="headerlink" href="#module-src.aoc2022.days.day11" title="Permalink to this heading">¶</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.aoc2022.days.day11.Monkey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day11.</span></span><span class="sig-name descname"><span class="pre">Monkey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">divisible</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">false_throw</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true_throw</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.aoc2022.days.day11.Monkey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data class representing the monkey configuration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>items</strong> (<em>List</em><em>[</em><em>int</em><em>]</em>) – list of items the monkey is currently holding</p></li>
+<li><p><strong>operation</strong> (<em>Callable</em><em>[</em><em>[</em><em>int</em><em>]</em><em>, </em><em>int</em><em>]</em>) – lambda function for updating the item priority</p></li>
+<li><p><strong>divisible</strong> (<em>int</em>) – number used for divisible check when throwing items</p></li>
+<li><p><strong>false_throw</strong> (<em>int</em>) – id of monkey to throw to on item % divisible != 0</p></li>
+<li><p><strong>true_throw</strong> (<em>int</em>) – id of monkey to throw to on item % divisible == 0</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.aoc2022.days.day11.Monkey.add_items">
+<span class="sig-name descname"><span class="pre">add_items</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.aoc2022.days.day11.Monkey.add_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a list of items to the items held by the monkey</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>items</strong> (<em>List</em><em>[</em><em>int</em><em>]</em>) – List of items to add to the monkey’s held items</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.aoc2022.days.day11.Monkey.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#src.aoc2022.days.day11.Monkey" title="src.aoc2022.days.day11.Monkey"><span class="pre">Monkey</span></a></span></span><a class="headerlink" href="#src.aoc2022.days.day11.Monkey.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new copy of this monkey</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Monkey copy</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#src.aoc2022.days.day11.Monkey" title="src.aoc2022.days.day11.Monkey">Monkey</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.aoc2022.days.day11.Monkey.divisible">
+<span class="sig-name descname"><span class="pre">divisible</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#src.aoc2022.days.day11.Monkey.divisible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.aoc2022.days.day11.Monkey.false_throw">
+<span class="sig-name descname"><span class="pre">false_throw</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#src.aoc2022.days.day11.Monkey.false_throw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.aoc2022.days.day11.Monkey.items">
+<span class="sig-name descname"><span class="pre">items</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#src.aoc2022.days.day11.Monkey.items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.aoc2022.days.day11.Monkey.operation">
+<span class="sig-name descname"><span class="pre">operation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#src.aoc2022.days.day11.Monkey.operation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.aoc2022.days.day11.Monkey.pop_items">
+<span class="sig-name descname"><span class="pre">pop_items</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day11.Monkey.pop_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pop all the items from the monkey and return the list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>items held by monkey</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.aoc2022.days.day11.Monkey.true_throw">
+<span class="sig-name descname"><span class="pre">true_throw</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#src.aoc2022.days.day11.Monkey.true_throw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 4</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day11.compute_number_of_counted_items">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day11.</span></span><span class="sig-name descname"><span class="pre">compute_number_of_counted_items</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_rounds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monkeys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#src.aoc2022.days.day11.Monkey" title="src.aoc2022.days.day11.Monkey"><span class="pre">Monkey</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day11.compute_number_of_counted_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the number of items each monkey has examined during a game</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_rounds</strong> (<em>int</em>) – Number of rounds to simulate</p></li>
+<li><p><strong>monkeys</strong> (<em>Dict</em><em>[</em><em>int</em><em>, </em><a class="reference internal" href="#src.aoc2022.days.day11.Monkey" title="src.aoc2022.days.day11.Monkey"><em>Monkey</em></a><em>]</em>) – Monkeys instances to simulate playing the game</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Examined items counts for each monkey id</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict[int, int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day11.compute_number_of_counted_items_no_div">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day11.</span></span><span class="sig-name descname"><span class="pre">compute_number_of_counted_items_no_div</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_rounds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monkeys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#src.aoc2022.days.day11.Monkey" title="src.aoc2022.days.day11.Monkey"><span class="pre">Monkey</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day11.compute_number_of_counted_items_no_div" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the number of items each monkey has examined
+during a game with no division rule</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_rounds</strong> (<em>int</em>) – Number of rounds to simulate</p></li>
+<li><p><strong>monkeys</strong> (<em>Dict</em><em>[</em><em>int</em><em>, </em><a class="reference internal" href="#src.aoc2022.days.day11.Monkey" title="src.aoc2022.days.day11.Monkey"><em>Monkey</em></a><em>]</em>) – Monkeys instances to simulate playing the game</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Examined items counts for each monkey id</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict[int, int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day11.parse_block">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day11.</span></span><span class="sig-name descname"><span class="pre">parse_block</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_data_block</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#src.aoc2022.days.day11.Monkey" title="src.aoc2022.days.day11.Monkey"><span class="pre">Monkey</span></a></span></span><a class="headerlink" href="#src.aoc2022.days.day11.parse_block" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse block of raw data to a single monkey monkey</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>raw_data_block</strong> (<em>str</em>) – Raw data containing data for single monkey</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>parsed Monkey instance</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#src.aoc2022.days.day11.Monkey" title="src.aoc2022.days.day11.Monkey">Monkey</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day11.parse_data_to_dict">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day11.</span></span><span class="sig-name descname"><span class="pre">parse_data_to_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#src.aoc2022.days.day11.Monkey" title="src.aoc2022.days.day11.Monkey"><span class="pre">Monkey</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day11.parse_data_to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the raw data intoa dict of monkeys</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>raw_data</strong> (<em>str</em>) – Raw data containing numerical data</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>parsed dict of Monkey id, Monkey</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict[int, <a class="reference internal" href="#src.aoc2022.days.day11.Monkey" title="src.aoc2022.days.day11.Monkey">Monkey</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src.aoc2022.days.day12">
+<span id="day-12"></span><h3>Day 12<a class="headerlink" href="#module-src.aoc2022.days.day12" title="Permalink to this heading">¶</a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day12.get_distance_matrix">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day12.</span></span><span class="sig-name descname"><span class="pre">get_distance_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#src.aoc2022.days.day12.get_distance_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the breadth-first distance matrix from aa starting position</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>np.ndarray</em>) – Height map for the traversal</p></li>
+<li><p><strong>pos</strong> (<em>Tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em>) – starting position for the depth-first search</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the shortest distance from the starting pos to all other points</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day12.parse_data_to_array">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day12.</span></span><span class="sig-name descname"><span class="pre">parse_data_to_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#src.aoc2022.days.day12.parse_data_to_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the raw data into a 1D list of instruction sets</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>raw_data</strong> (<em>str</em>) – Raw data containing numerical data</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>parsed matrix of values</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[List[str]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src.aoc2022.days.day13">
+<span id="day-13"></span><h3>Day 13<a class="headerlink" href="#module-src.aoc2022.days.day13" title="Permalink to this heading">¶</a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day13.element_is_equal">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day13.</span></span><span class="sig-name descname"><span class="pre">element_is_equal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">left_val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right_val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#src.aoc2022.days.day13.element_is_equal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform ternary comparison on two elements. Returns following:
+- 1 if left_val smaller
+- 0 if equal
+- -1 if right_val smaller</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>left_val</strong> (<em>element_type</em>) – left value for comparison</p></li>
+<li><p><strong>right_val</strong> (<em>element_type</em>) – right value for comparison</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Ternary value for equality comparison</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day13.parse_data_to_array">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day13.</span></span><span class="sig-name descname"><span class="pre">parse_data_to_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day13.parse_data_to_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse raw data into a list of packet tuples</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>raw_data</strong> (<em>str</em>) – Raw data to parse into packets</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of all packet pairs</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[Tuple[List, List]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day13.sort_packets">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day13.</span></span><span class="sig-name descname"><span class="pre">sort_packets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day13.sort_packets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sort packets using comparison function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>packets</strong> (<em>List</em><em>[</em><em>pack_type</em><em>]</em>) – list of packets to sort</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of sorted packets</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[pack_type]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src.aoc2022.days.day14">
+<span id="day-14"></span><h3>Day 14<a class="headerlink" href="#module-src.aoc2022.days.day14" title="Permalink to this heading">¶</a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day14.add_floor_to_map">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day14.</span></span><span class="sig-name descname"><span class="pre">add_floor_to_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">starting_point</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day14.add_floor_to_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a floor underneath the given map</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>map</strong> (<em>np.ndarray</em>) – The map to which the extra floor is added</p></li>
+<li><p><strong>starting_point</strong> (<em>Tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em>) – Starting point from where sand is dropped</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the updated map and starting point</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple[np.ndarray, Tuple[int, int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day14.parse_data_to_array">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day14.</span></span><span class="sig-name descname"><span class="pre">parse_data_to_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">starting_point</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day14.parse_data_to_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse raw data into a grid of air/stone cells</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>raw_data</strong> (<em>str</em>) – Raw data to parse into packets</p></li>
+<li><p><strong>starting_point</strong> (<em>Tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em>) – Starting point from where sand is dropped</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the generated map and updated starting point</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple[np.ndarray, Tuple[int, int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day14.render_map">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day14.</span></span><span class="sig-name descname"><span class="pre">render_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_point</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#src.aoc2022.days.day14.render_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render the map for visualization</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>map</strong> (<em>np.ndarray</em>) – The map through which the grain of sand falls</p></li>
+<li><p><strong>starting_point</strong> (<em>Tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em>) – Starting point from where sand is dropped</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A rendered representation of the map</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day14.simulate_grain_of_sand">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day14.</span></span><span class="sig-name descname"><span class="pre">simulate_grain_of_sand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">starting_point</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day14.simulate_grain_of_sand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulate a grain of sand falling through the map</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>map</strong> (<em>np.ndarray</em>) – The map through which the grain of sand falls</p></li>
+<li><p><strong>starting_point</strong> (<em>Tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em>) – Starting point from where sand is dropped</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The updated cell that the grain of sand falls onto</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple[int, int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day14.simulate_sand_falling">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day14.</span></span><span class="sig-name descname"><span class="pre">simulate_sand_falling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">starting_point</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#src.aoc2022.days.day14.simulate_sand_falling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Repeatedly drop grains of sand til convergence</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>map</strong> (<em>np.ndarray</em>) – The map through which the grain of sand falls</p></li>
+<li><p><strong>starting_point</strong> (<em>Tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em>) – Starting point from where sand is dropped</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>converged map state after grain of sand fall off edge of map</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src.aoc2022.days.day15">
+<span id="day-15"></span><h3>Day 15<a class="headerlink" href="#module-src.aoc2022.days.day15" title="Permalink to this heading">¶</a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day15.count_scanned_location">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day15.</span></span><span class="sig-name descname"><span class="pre">count_scanned_location</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">beacon_sensor_locations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bounding_range</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day15.count_scanned_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Count how many locations have been scanned given the beacon/sensor
+locations and the row number</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>beacon_sensor_locations</strong> (<em>List</em><em>[</em><em>Tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>, </em><em>int</em><em>, </em><em>int</em><em>]</em><em>]</em>) – List of sensor/beacon locations</p></li>
+<li><p><strong>row_number</strong> (<em>int</em>) – The row for which to count the scan locations</p></li>
+<li><p><strong>bounding_range</strong> (<em>Optional</em><em>[</em><em>Tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em><em>]</em>) – an optional bounding range for scan range</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the ranges scanned as well as the total number of scanned cells</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple[List[Tuple[int, int]], int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day15.parse_data_to_array">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day15.</span></span><span class="sig-name descname"><span class="pre">parse_data_to_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day15.parse_data_to_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse raw data into a list of sensor/closest beacon locations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>raw_data</strong> (<em>str</em>) – Raw data to parse into sensor/beacon locations</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the parsed sensor/beacon locations</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[Tuple[int, int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src.aoc2022.days.day16">
+<span id="day-16"></span><h3>Day 16<a class="headerlink" href="#module-src.aoc2022.days.day16" title="Permalink to this heading">¶</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.aoc2022.days.day16.Graph">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day16.</span></span><span class="sig-name descname"><span class="pre">Graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flow_rates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cons</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.aoc2022.days.day16.Graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data class representing a graph of nodes and edges</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>flow_rates</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>int</em><em>]</em>) – A dict of node name, flow rate</p></li>
+<li><p><strong>cons</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – a dict of node name, node edges</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.aoc2022.days.day16.Graph.compute_distance_matrix">
+<span class="sig-name descname"><span class="pre">compute_distance_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day16.Graph.compute_distance_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute shortest distance from starting node to all other nodes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>start</strong> (<em>str</em>) – Name of starting node</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>shortest distance from starting node to all other nodes</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict[str, int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.aoc2022.days.day16.Graph.get_connections">
+<span class="sig-name descname"><span class="pre">get_connections</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day16.Graph.get_connections" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get connections for a specified node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>node_name</strong> (<em>str</em>) – Name of node to retrieve connections</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the names of the connected nodes for the given node</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.aoc2022.days.day16.Graph.get_flow_rate">
+<span class="sig-name descname"><span class="pre">get_flow_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_name</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#src.aoc2022.days.day16.Graph.get_flow_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get flow rate for a specified node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>node_name</strong> (<em>str</em>) – Name of node to retrieve flow rate</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Flow rate of given node</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.aoc2022.days.day16.Graph.get_flow_rates">
+<span class="sig-name descname"><span class="pre">get_flow_rates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day16.Graph.get_flow_rates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get flow rates for all nodes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict of node name, flow rate</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.aoc2022.days.day16.Graph.get_minimal_distance">
+<span class="sig-name descname"><span class="pre">get_minimal_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#src.aoc2022.days.day16.Graph.get_minimal_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get shortest distance between two valves</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start</strong> (<em>str</em>) – Name of starting node</p></li>
+<li><p><strong>node_name</strong> (<em>str</em>) – Name of end node</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>shortest distance between both nodes</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.aoc2022.days.day16.Graph.get_valves">
+<span class="sig-name descname"><span class="pre">get_valves</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day16.Graph.get_valves" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of all valve names</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>valve names</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.aoc2022.days.day16.Graph.time_aware_permutations">
+<span class="sig-name descname"><span class="pre">time_aware_permutations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remaining_valves</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remaining_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Generator</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day16.Graph.time_aware_permutations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate all possible permutations of valve openings that respect
+the time limits</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>position</strong> (<em>str</em>) – Name of current node</p></li>
+<li><p><strong>remaining_valves</strong> (<em>Set</em><em>[</em><em>str</em><em>]</em>) – valves that have not yet been opened</p></li>
+<li><p><strong>remaining_time</strong> (<em>int</em>) – Amount of time remaining before eruption</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>shortest distance from starting node to all other nodes</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict[str, int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day16.get_optimal_dual_sequence">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day16.</span></span><span class="sig-name descname"><span class="pre">get_optimal_dual_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#src.aoc2022.days.day16.Graph" title="src.aoc2022.days.day16.Graph"><span class="pre">Graph</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day16.get_optimal_dual_sequence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the optimal valve opening sequence for two agents</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> (<a class="reference internal" href="#src.aoc2022.days.day16.Graph" title="src.aoc2022.days.day16.Graph"><em>Graph</em></a>) – Graph of valves to open</p></li>
+<li><p><strong>start</strong> (<em>str</em>) – Name of starting node</p></li>
+<li><p><strong>total_time</strong> (<em>int</em>) – total time for valve sequence</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Optimal paths for elephant and person, and associated score</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple[List[Tuple[str, int]], List[Tuple[str, int]], int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day16.get_optimal_sequence">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day16.</span></span><span class="sig-name descname"><span class="pre">get_optimal_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#src.aoc2022.days.day16.Graph" title="src.aoc2022.days.day16.Graph"><span class="pre">Graph</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">non_zero_valves</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.aoc2022.days.day16.get_optimal_sequence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the optimal valve opening sequence</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> (<a class="reference internal" href="#src.aoc2022.days.day16.Graph" title="src.aoc2022.days.day16.Graph"><em>Graph</em></a>) – Graph of valves to open</p></li>
+<li><p><strong>start</strong> (<em>str</em>) – Name of starting node</p></li>
+<li><p><strong>total_time</strong> (<em>int</em>) – total time for valve sequence</p></li>
+<li><p><strong>non_zero_valves</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Optional list of valves to specify for search</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Optimal sequence and score for opening valves</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple[List[Tuple[str, int]], int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.aoc2022.days.day16.parse_data_to_graph">
+<span class="sig-prename descclassname"><span class="pre">src.aoc2022.days.day16.</span></span><span class="sig-name descname"><span class="pre">parse_data_to_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#src.aoc2022.days.day16.Graph" title="src.aoc2022.days.day16.Graph"><span class="pre">Graph</span></a></span></span><a class="headerlink" href="#src.aoc2022.days.day16.parse_data_to_graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse raw data into a Graph of valves and connections</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>raw_data</strong> (<em>str</em>) – Raw data to parse into Graph</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the parsed Graph data</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#src.aoc2022.days.day16.Graph" title="src.aoc2022.days.day16.Graph">Graph</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">AdventOfCode 2022</a><ul>
+<li><a class="reference internal" href="#module-src.aoc2022.utils">Utils</a><ul>
+<li><a class="reference internal" href="#src.aoc2022.utils.get_raw_data"><code class="docutils literal notranslate"><span class="pre">get_raw_data()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#days">Days</a><ul>
+<li><a class="reference internal" href="#module-src.aoc2022.days.day1">Day 1</a><ul>
+<li><a class="reference internal" href="#src.aoc2022.days.day1.get_3_largest_group_sum"><code class="docutils literal notranslate"><span class="pre">get_3_largest_group_sum()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day1.get_largest_group_sum"><code class="docutils literal notranslate"><span class="pre">get_largest_group_sum()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day1.parse_data_to_array"><code class="docutils literal notranslate"><span class="pre">parse_data_to_array()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.aoc2022.days.day2">Day 2</a><ul>
+<li><a class="reference internal" href="#src.aoc2022.days.day2.Move"><code class="docutils literal notranslate"><span class="pre">Move</span></code></a><ul>
+<li><a class="reference internal" href="#src.aoc2022.days.day2.Move.PAPER"><code class="docutils literal notranslate"><span class="pre">Move.PAPER</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day2.Move.ROCK"><code class="docutils literal notranslate"><span class="pre">Move.ROCK</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day2.Move.SCISSORS"><code class="docutils literal notranslate"><span class="pre">Move.SCISSORS</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.aoc2022.days.day2.Strategy"><code class="docutils literal notranslate"><span class="pre">Strategy</span></code></a><ul>
+<li><a class="reference internal" href="#src.aoc2022.days.day2.Strategy.DRAW"><code class="docutils literal notranslate"><span class="pre">Strategy.DRAW</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day2.Strategy.LOSE"><code class="docutils literal notranslate"><span class="pre">Strategy.LOSE</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day2.Strategy.WIN"><code class="docutils literal notranslate"><span class="pre">Strategy.WIN</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.aoc2022.days.day2.calculate_points"><code class="docutils literal notranslate"><span class="pre">calculate_points()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day2.parse_data"><code class="docutils literal notranslate"><span class="pre">parse_data()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.aoc2022.days.day3">Day 3</a><ul>
+<li><a class="reference internal" href="#src.aoc2022.days.day3.count_total_priority"><code class="docutils literal notranslate"><span class="pre">count_total_priority()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day3.count_triplet_priority"><code class="docutils literal notranslate"><span class="pre">count_triplet_priority()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day3.get_shared_element"><code class="docutils literal notranslate"><span class="pre">get_shared_element()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day3.get_triplet_shared_element"><code class="docutils literal notranslate"><span class="pre">get_triplet_shared_element()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day3.item_priority"><code class="docutils literal notranslate"><span class="pre">item_priority()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day3.parse_data_to_array"><code class="docutils literal notranslate"><span class="pre">parse_data_to_array()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.aoc2022.days.day4">Day 4</a><ul>
+<li><a class="reference internal" href="#src.aoc2022.days.day4.parse_data_to_array"><code class="docutils literal notranslate"><span class="pre">parse_data_to_array()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day4.set_contains_other_set"><code class="docutils literal notranslate"><span class="pre">set_contains_other_set()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day4.set_overlaps"><code class="docutils literal notranslate"><span class="pre">set_overlaps()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.aoc2022.days.day5">Day 5</a><ul>
+<li><a class="reference internal" href="#src.aoc2022.days.day5.parse_data"><code class="docutils literal notranslate"><span class="pre">parse_data()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day5.transfer_items"><code class="docutils literal notranslate"><span class="pre">transfer_items()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day5.transfer_multiple_items"><code class="docutils literal notranslate"><span class="pre">transfer_multiple_items()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.aoc2022.days.day6">Day 6</a><ul>
+<li><a class="reference internal" href="#src.aoc2022.days.day6.detect_start_of_packet"><code class="docutils literal notranslate"><span class="pre">detect_start_of_packet()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.aoc2022.days.day7">Day 7</a><ul>
+<li><a class="reference internal" href="#src.aoc2022.days.day7.DirectoryNode"><code class="docutils literal notranslate"><span class="pre">DirectoryNode</span></code></a><ul>
+<li><a class="reference internal" href="#src.aoc2022.days.day7.DirectoryNode.add_child"><code class="docutils literal notranslate"><span class="pre">DirectoryNode.add_child()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day7.DirectoryNode.add_file"><code class="docutils literal notranslate"><span class="pre">DirectoryNode.add_file()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day7.DirectoryNode.get_child"><code class="docutils literal notranslate"><span class="pre">DirectoryNode.get_child()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day7.DirectoryNode.update_size"><code class="docutils literal notranslate"><span class="pre">DirectoryNode.update_size()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.aoc2022.days.day7.FileNode"><code class="docutils literal notranslate"><span class="pre">FileNode</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day7.get_directories_under_size"><code class="docutils literal notranslate"><span class="pre">get_directories_under_size()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day7.get_smallest_directory_to_delete"><code class="docutils literal notranslate"><span class="pre">get_smallest_directory_to_delete()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day7.parse_data_to_tree"><code class="docutils literal notranslate"><span class="pre">parse_data_to_tree()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day7.tree_iterator"><code class="docutils literal notranslate"><span class="pre">tree_iterator()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.aoc2022.days.day8">Day 8</a><ul>
+<li><a class="reference internal" href="#src.aoc2022.days.day8.compute_scenic_score"><code class="docutils literal notranslate"><span class="pre">compute_scenic_score()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day8.count_visible_trees"><code class="docutils literal notranslate"><span class="pre">count_visible_trees()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day8.get_max_scenic_score"><code class="docutils literal notranslate"><span class="pre">get_max_scenic_score()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day8.parse_data_to_array"><code class="docutils literal notranslate"><span class="pre">parse_data_to_array()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day8.scan_height_row"><code class="docutils literal notranslate"><span class="pre">scan_height_row()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.aoc2022.days.day9">Day 9</a><ul>
+<li><a class="reference internal" href="#src.aoc2022.days.day9.Move"><code class="docutils literal notranslate"><span class="pre">Move</span></code></a><ul>
+<li><a class="reference internal" href="#src.aoc2022.days.day9.Move.DOWN"><code class="docutils literal notranslate"><span class="pre">Move.DOWN</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day9.Move.LEFT"><code class="docutils literal notranslate"><span class="pre">Move.LEFT</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day9.Move.RIGHT"><code class="docutils literal notranslate"><span class="pre">Move.RIGHT</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day9.Move.UP"><code class="docutils literal notranslate"><span class="pre">Move.UP</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.aoc2022.days.day9.parse_data_to_array"><code class="docutils literal notranslate"><span class="pre">parse_data_to_array()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.aoc2022.days.day10">Day 10</a><ul>
+<li><a class="reference internal" href="#src.aoc2022.days.day10.get_total_signal_strength"><code class="docutils literal notranslate"><span class="pre">get_total_signal_strength()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day10.parse_data_to_array"><code class="docutils literal notranslate"><span class="pre">parse_data_to_array()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day10.render_cpu_pixel_values"><code class="docutils literal notranslate"><span class="pre">render_cpu_pixel_values()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day10.simulate_cpu_state_machine"><code class="docutils literal notranslate"><span class="pre">simulate_cpu_state_machine()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.aoc2022.days.day11">Day 11</a><ul>
+<li><a class="reference internal" href="#src.aoc2022.days.day11.Monkey"><code class="docutils literal notranslate"><span class="pre">Monkey</span></code></a><ul>
+<li><a class="reference internal" href="#src.aoc2022.days.day11.Monkey.add_items"><code class="docutils literal notranslate"><span class="pre">Monkey.add_items()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day11.Monkey.copy"><code class="docutils literal notranslate"><span class="pre">Monkey.copy()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day11.Monkey.divisible"><code class="docutils literal notranslate"><span class="pre">Monkey.divisible</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day11.Monkey.false_throw"><code class="docutils literal notranslate"><span class="pre">Monkey.false_throw</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day11.Monkey.items"><code class="docutils literal notranslate"><span class="pre">Monkey.items</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day11.Monkey.operation"><code class="docutils literal notranslate"><span class="pre">Monkey.operation</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day11.Monkey.pop_items"><code class="docutils literal notranslate"><span class="pre">Monkey.pop_items()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day11.Monkey.true_throw"><code class="docutils literal notranslate"><span class="pre">Monkey.true_throw</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.aoc2022.days.day11.compute_number_of_counted_items"><code class="docutils literal notranslate"><span class="pre">compute_number_of_counted_items()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day11.compute_number_of_counted_items_no_div"><code class="docutils literal notranslate"><span class="pre">compute_number_of_counted_items_no_div()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day11.parse_block"><code class="docutils literal notranslate"><span class="pre">parse_block()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day11.parse_data_to_dict"><code class="docutils literal notranslate"><span class="pre">parse_data_to_dict()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.aoc2022.days.day12">Day 12</a><ul>
+<li><a class="reference internal" href="#src.aoc2022.days.day12.get_distance_matrix"><code class="docutils literal notranslate"><span class="pre">get_distance_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day12.parse_data_to_array"><code class="docutils literal notranslate"><span class="pre">parse_data_to_array()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.aoc2022.days.day13">Day 13</a><ul>
+<li><a class="reference internal" href="#src.aoc2022.days.day13.element_is_equal"><code class="docutils literal notranslate"><span class="pre">element_is_equal()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day13.parse_data_to_array"><code class="docutils literal notranslate"><span class="pre">parse_data_to_array()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day13.sort_packets"><code class="docutils literal notranslate"><span class="pre">sort_packets()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.aoc2022.days.day14">Day 14</a><ul>
+<li><a class="reference internal" href="#src.aoc2022.days.day14.add_floor_to_map"><code class="docutils literal notranslate"><span class="pre">add_floor_to_map()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day14.parse_data_to_array"><code class="docutils literal notranslate"><span class="pre">parse_data_to_array()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day14.render_map"><code class="docutils literal notranslate"><span class="pre">render_map()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day14.simulate_grain_of_sand"><code class="docutils literal notranslate"><span class="pre">simulate_grain_of_sand()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day14.simulate_sand_falling"><code class="docutils literal notranslate"><span class="pre">simulate_sand_falling()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.aoc2022.days.day15">Day 15</a><ul>
+<li><a class="reference internal" href="#src.aoc2022.days.day15.count_scanned_location"><code class="docutils literal notranslate"><span class="pre">count_scanned_location()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day15.parse_data_to_array"><code class="docutils literal notranslate"><span class="pre">parse_data_to_array()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.aoc2022.days.day16">Day 16</a><ul>
+<li><a class="reference internal" href="#src.aoc2022.days.day16.Graph"><code class="docutils literal notranslate"><span class="pre">Graph</span></code></a><ul>
+<li><a class="reference internal" href="#src.aoc2022.days.day16.Graph.compute_distance_matrix"><code class="docutils literal notranslate"><span class="pre">Graph.compute_distance_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day16.Graph.get_connections"><code class="docutils literal notranslate"><span class="pre">Graph.get_connections()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day16.Graph.get_flow_rate"><code class="docutils literal notranslate"><span class="pre">Graph.get_flow_rate()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day16.Graph.get_flow_rates"><code class="docutils literal notranslate"><span class="pre">Graph.get_flow_rates()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day16.Graph.get_minimal_distance"><code class="docutils literal notranslate"><span class="pre">Graph.get_minimal_distance()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day16.Graph.get_valves"><code class="docutils literal notranslate"><span class="pre">Graph.get_valves()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day16.Graph.time_aware_permutations"><code class="docutils literal notranslate"><span class="pre">Graph.time_aware_permutations()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.aoc2022.days.day16.get_optimal_dual_sequence"><code class="docutils literal notranslate"><span class="pre">get_optimal_dual_sequence()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day16.get_optimal_sequence"><code class="docutils literal notranslate"><span class="pre">get_optimal_sequence()</span></code></a></li>
+<li><a class="reference internal" href="#src.aoc2022.days.day16.parse_data_to_graph"><code class="docutils literal notranslate"><span class="pre">parse_data_to_graph()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="index.html"
+                          title="previous chapter">Welcome to AdventOfCode’s documentation!</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/2022.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to AdventOfCode’s documentation!"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Advent Of Code  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">AdventOfCode 2022</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Phillip Williams.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    </div>
+  </body>
+</html>

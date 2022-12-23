@@ -1,0 +1,90 @@
+AdventOfCode 2022
+*************************************
+
+Utils
+------------------
+.. automodule:: src.aoc2022.utils
+   :members:
+
+Days
+------------------
+
+Day 1
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day1
+   :members:
+
+Day 2
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day2
+   :members:
+
+Day 3
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day3
+   :members:
+
+Day 4
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day4
+   :members:
+
+Day 5
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day5
+   :members:
+
+Day 6
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day6
+   :members:
+
+Day 7
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day7
+   :members:
+
+Day 8
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day8
+   :members:
+
+Day 9
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day9
+   :members:
+
+Day 10
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day10
+   :members:
+
+Day 11
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day11
+   :members:
+
+Day 12
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day12
+   :members:
+
+Day 13
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day13
+   :members:
+
+Day 14
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day14
+   :members:
+
+Day 15
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day15
+   :members:
+
+Day 16
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day16
+   :members:
