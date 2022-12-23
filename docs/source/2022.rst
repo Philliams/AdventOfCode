@@ -79,3 +79,12 @@ Day 14
 .. automodule:: src.aoc2022.days.day14
    :members:
 
+Day 15
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day15
+   :members:
+
+Day 16
+^^^^^^^^^^^^^^^^^^
+.. automodule:: src.aoc2022.days.day16
+   :members:

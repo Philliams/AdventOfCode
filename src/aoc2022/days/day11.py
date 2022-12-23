@@ -24,9 +24,6 @@ class Monkey(NamedTuple):
 
     :param true_throw: id of monkey to throw to on item % divisible == 0
     :type true_throw: int
-
-    :return: parsed matrix of values
-    :rtype: List[List[str]]
     """
 
     items: List[int]

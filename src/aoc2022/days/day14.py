@@ -126,6 +126,8 @@ def simulate_grain_of_sand(
     :return: The updated cell that the grain of sand falls onto
     :rtype: Tuple[int, int]
     """
+
+    # TODO: this can be optimized with dynamic programming
     x, y = starting_point
     max_x, max_y = map_.shape
     while (x >= 0) and (x < max_x) and (y >= 0) and (y < max_y - 1):
